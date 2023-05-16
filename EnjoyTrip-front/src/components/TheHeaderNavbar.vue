@@ -24,7 +24,11 @@
             </router-link>
             <router-link :to="{ name: 'insta' }" class="m-2 link">
               <b-icon icon="instagram" animation="fade" font-scale="2"></b-icon>
-              인스타그램
+              여행지 검색
+            </router-link>
+            <router-link :to="{ name: 'attr' }" class="m-2 link">
+              <b-icon icon="house-fill" animation="fade" font-scale="2"></b-icon>
+              여행지 검색
             </router-link>
             <router-link :to="{ name: 'board' }" class="m-2 link">
               <b-icon icon="journal" animation="fade" font-scale="2"></b-icon>
@@ -124,8 +128,6 @@ export default {
 }
 
 .my-custom-navbar {
-  background-color:;
+  background-color: ;
 }
-
-
 </style>

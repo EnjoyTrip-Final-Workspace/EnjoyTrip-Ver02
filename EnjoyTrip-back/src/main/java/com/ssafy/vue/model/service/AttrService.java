@@ -18,5 +18,9 @@ public interface AttrService {
 
 	List<gugun> getGugun(int code) throws Exception;
 
+	// 0516 시도추가
+	List<Sido> getSido() throws Exception;
+
+
 
 }

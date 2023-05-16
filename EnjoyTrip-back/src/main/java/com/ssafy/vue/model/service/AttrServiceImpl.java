@@ -38,4 +38,10 @@ public class AttrServiceImpl implements AttrService {
 	public List<gugun> getGugun(int code) throws Exception {
 		return attrMapper.selectGugun(code);
 	}
+
+	// 0516 시도추가
+	@Override
+	public List<Sido> getSido() throws Exception {
+		return attrMapper.getSido();
+	}
 }
