@@ -4,7 +4,8 @@
       <b-form-select v-model="sidoCode" :options="sidos" @change="gugunList"></b-form-select>
     </b-col>
     <b-col class="sm-3">
-      <b-form-select v-model="gugunCode" :options="guguns" @change="searchApt"></b-form-select>
+      <b-form-select v-model="gugunCode" :options="guguns"></b-form-select>
+      <!-- <b-form-select v-model="gugunCode" :options="guguns" @change="searchApt"></b-form-select> -->
     </b-col>
     <b-col class="sm-3">
       <b-form-select v-model="type" :options="attrTypes"></b-form-select>

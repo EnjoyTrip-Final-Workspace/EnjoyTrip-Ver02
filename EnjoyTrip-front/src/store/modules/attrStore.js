@@ -16,12 +16,13 @@ const attrStore = {
     },
     SET_SIDO_LIST(state, sidos) {
       sidos.forEach((sido) => {
-        state.sidos.push({ value: sido.sidoCode, text: sido.sidoName });
+        state.sidos.push({ value: sido.code, text: sido.name });
       });
     },
     SET_GUGUN_LIST(state, guguns) {
+      console.log(guguns);
       guguns.forEach((gugun) => {
-        state.guguns.push({ value: gugun.gugunCode, text: gugun.gugunName });
+        state.guguns.push({ value: gugun.code, text: gugun.name });
       });
     },
   },
@@ -37,9 +38,10 @@ const attrStore = {
       );
     },
     getGugun: ({ commit }, sidoCode) => {
-      const params = { sido: sidoCode };
+      // const params = { sido: sidoCode };
       getGugunList(
-        params,
+        // params,
+        sidoCode,
         ({ data }) => {
           commit("SET_GUGUN_LIST", data);
         },

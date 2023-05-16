@@ -16,17 +16,16 @@
     </b-row>
     <b-row>
       <b-col cols="6" align="left">
-        <house-list />
+        <!-- <house-list /> -->
       </b-col>
       <b-col cols="6">
-        <house-detail />
+        <!-- <house-detail /> -->
       </b-col>
     </b-row>
   </b-container>
 </template>
 <script>
 import AttrSearchBar from "@/components/attraction/AttrSearchBar.vue";
-// import AttrSearchBar from "@/components/attraction/AttrSearchBar.vue";
 // import HouseList from "@/components/house/HouseList.vue";
 // import HouseDetail from "@/components/house/HouseDetail.vue";
 
