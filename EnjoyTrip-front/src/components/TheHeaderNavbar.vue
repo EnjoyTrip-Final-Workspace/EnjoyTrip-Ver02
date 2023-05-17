@@ -22,10 +22,10 @@
               <b-icon icon="house-door" animation="" font-scale="2" color="black"></b-icon>
               메인
             </router-link>
-            <router-link :to="{ name: 'insta' }" class="m-2 link">
+            <!-- <router-link :to="{ name: 'insta' }" class="m-2 link">
               <b-icon icon="instagram" animation="fade" font-scale="2"></b-icon>
               여행지 검색
-            </router-link>
+            </router-link> -->
             <router-link :to="{ name: 'attr' }" class="m-2 link">
               <b-icon icon="house-fill" animation="fade" font-scale="2"></b-icon>
               여행지 검색
