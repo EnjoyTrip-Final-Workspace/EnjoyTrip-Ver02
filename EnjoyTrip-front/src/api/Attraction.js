@@ -11,4 +11,8 @@ function getGugunList(sidoCode, success, fail) {
   api.get(`/attr/gugun/${sidoCode}`).then(success).catch(fail);
 }
 
+// function getAttrList(search, success, fail){
+//   api.post(`/attr/search`, JSON.stringify(search)).then(success).catch(fail);
+// }
+
 export { getSidoList, getGugunList };

@@ -1,7 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import AppMain from "@/views/AppMain";
-import AppInstagram from "@/views/AppInstagram";
 import AppHouse from "@/views/AppHouse";
 import AppAttraction from "@/views/AppAttraction";
 
@@ -35,11 +34,6 @@ const routes = [
     path: "/",
     name: "main",
     component: AppMain,
-  },
-  {
-    path: "/instagram",
-    name: "insta",
-    component: AppInstagram,
   },
   {
     path: "/house",
