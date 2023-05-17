@@ -33,7 +33,7 @@
 	    and a.gugun_code = #{gugun}
 	  </if>
 	  <if test="addr != null and !addr.equals('')">
-	    and addr1 like '%${addr}%'
+	    and (addr1 like '%${addr}%' or title like '%${addr}%')
 	  </if>
 	  <if test="type != null">
 	    and content_type_id = #{type}

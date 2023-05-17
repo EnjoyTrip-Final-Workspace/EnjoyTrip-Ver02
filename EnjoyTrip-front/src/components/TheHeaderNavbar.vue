@@ -19,36 +19,23 @@
         <b-navbar-nav>
           <b-nav-item id="item" href="#">
             <router-link :to="{ name: 'main' }" class="link">
-              <b-icon icon="house-door" animation="" font-scale="2" color="black"></b-icon>
+              <font-awesome-icon icon="heart" aria-hidden="true" style="font-size: 2em" />
               메인
             </router-link>
-            <router-link :to="{ name: 'trip' }" class="m-2 link">
-              <i class="bi bi-airplane" aria-hidden="true" style="font-size: 2em"></i>
+            <router-link :to="{ name: 'attr' }" class="m-2 link">
+              <font-awesome-icon icon="heart" aria-hidden="true" style="font-size: 2em" />
               여행지
             </router-link>
-            <router-link :to="{ name: 'trip' }" class="m-2 link">
-              <!-- <i class="fas fa-heart" aria-hidden="true" style="font-size: 2em"></i> -->
-              <font-awesome-icon icon="heart" aria-hidden="true" style="font-size: 2em"/>
-              변경
-            </router-link>
             <router-link :to="{ name: 'board' }" class="m-2 link">
-              <b-icon icon="journal" animation="fade" font-scale="2"></b-icon>
+              <font-awesome-icon icon="heart" aria-hidden="true" style="font-size: 2em" />
               게시판
             </router-link>
             <router-link :to="{ name: 'house' }" class="m-2 link">
-              <b-icon
-                icon="house-fill"
-                animation="fade"
-                font-scale="2"
-              ></b-icon>
+              <font-awesome-icon icon="heart" aria-hidden="true" style="font-size: 2em" />
               아파트정보
             </router-link>
             <router-link :to="{ name: 'todo' }" class="link">
-              <b-icon
-                icon="calendar-check"
-                animation="fade"
-                font-scale="2"
-              ></b-icon>
+              <font-awesome-icon icon="heart" aria-hidden="true" style="font-size: 2em" />
               TodoList
             </router-link>
           </b-nav-item>
@@ -57,10 +44,7 @@
         <!-- after login -->
         <b-navbar-nav class="ml-auto" v-if="userInfo">
           <b-nav-item class="align-self-center">
-            <b-avatar
-              variant="primary"
-              v-text="userInfo.userid.charAt(0).toUpperCase()"
-            ></b-avatar>
+            <b-avatar variant="primary" v-text="userInfo.userid.charAt(0).toUpperCase()"></b-avatar>
             {{ userInfo.username }}({{ userInfo.userid }})님 환영합니다.
           </b-nav-item>
           <b-nav-item class="align-self-center">
@@ -68,9 +52,7 @@
               >내정보보기</router-link
             >
           </b-nav-item>
-          <b-nav-item
-            class="align-self-center link"
-            @click.prevent="onClickLogout"
+          <b-nav-item class="align-self-center link" @click.prevent="onClickLogout"
             >로그아웃</b-nav-item
           >
         </b-navbar-nav>
@@ -141,7 +123,4 @@ export default {
   text-decoration: none;
 }
 
-.my-custom-navbar {
-  background-color: none;
-}
 </style>
