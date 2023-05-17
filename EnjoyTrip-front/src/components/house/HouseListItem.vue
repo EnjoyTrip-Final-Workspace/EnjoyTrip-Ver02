@@ -14,12 +14,12 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions } from 'vuex';
 
-const houseStore = "houseStore";
+const houseStore = 'houseStore';
 
 export default {
-  name: "HouseListItem",
+  name: 'HouseListItem',
   data() {
     return {
       isColor: false,
@@ -29,7 +29,7 @@ export default {
     house: Object,
   },
   methods: {
-    ...mapActions(houseStore, ["detailHouse"]),
+    ...mapActions(houseStore, ['detailHouse']),
     selectHouse() {
       // console.log("listRow : ", this.house);
       // this.$store.dispatch("getHouse", this.house);
