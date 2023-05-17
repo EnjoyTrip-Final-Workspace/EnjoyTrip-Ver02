@@ -19,5 +19,6 @@ public interface AttrMapper {
 	List<Sido> selectSido() throws SQLException;
 
 	List<gugun> selectGugun(int code) throws SQLException;
-
+	
+	List<Sido> getSido() throws SQLException;
 }

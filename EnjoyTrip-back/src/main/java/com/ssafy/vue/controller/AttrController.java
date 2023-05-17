@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ssafy.vue.model.Attraction;
 import com.ssafy.vue.model.Search;
+import com.ssafy.vue.model.Sido;
 import com.ssafy.vue.model.gugun;
 import com.ssafy.vue.model.service.AttrService;
+
+import io.swagger.annotations.ApiParam;
 
 
 @RestController
@@ -56,11 +59,23 @@ public class AttrController {
         }
     }
 
-    @GetMapping("/gugun")
-    public ResponseEntity<List<gugun>> getGugun(@RequestParam int id) {
+    @GetMapping("/gugun/{sidoCode}")
+    public ResponseEntity<List<gugun>> getGugun(@PathVariable("sidoCode") int sidocode) {
         try {
-            List<gugun> gugunList = attrService.getGugun(id);
+            List<gugun> gugunList = attrService.getGugun(sidocode);
             return ResponseEntity.ok().body(gugunList);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+    
+    // 0516 시도추가
+    @GetMapping("/sido")
+    public ResponseEntity<List<Sido>> getGugun() {
+        try {
+            List<Sido> sidoList = attrService.getSido();
+            return ResponseEntity.ok().body(sidoList);
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();

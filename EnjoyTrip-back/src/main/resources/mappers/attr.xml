@@ -50,7 +50,14 @@
     
     <select id="selectSido" resultMap="sidoMap">
         select sido_code, sido_name
-        from enjoytrip.sido
+        from sido
+        order by sido_code
+    </select>
+	
+	<!--0516 시도추가  -->
+	<select id="getSido" resultMap="sidoMap">
+        select sido_code, sido_name
+        from sido
         order by sido_code
     </select>
 	

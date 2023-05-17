@@ -61,6 +61,7 @@ const memberStore = "memberStore";
 export default {
   name: "UserMyPage",
   components: {},
+  
   computed: {
     ...mapState(memberStore, ["userInfo"]),
   },

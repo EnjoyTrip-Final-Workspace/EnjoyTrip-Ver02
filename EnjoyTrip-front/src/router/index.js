@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import AppMain from "@/views/AppMain";
 import AppInstagram from "@/views/AppInstagram";
 import AppHouse from "@/views/AppHouse";
+import AppAttraction from "@/views/AppAttraction";
 
 import store from "@/store";
 
@@ -49,6 +50,11 @@ const routes = [
     path: "/todo",
     name: "todo",
     component: () => import("@/views/AppTodo"),
+  },
+  {
+    path: "/attraction",
+    name: "attr",
+    component: AppAttraction,
   },
   {
     path: "/user",
