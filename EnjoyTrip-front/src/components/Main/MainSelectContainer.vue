@@ -1,9 +1,9 @@
 <template>
   <div class="select-container">
-    <b-form-select v-model="selected" :options="options"></b-form-select>
-    <b-form-select v-model="selected" :options="options"></b-form-select>
-    <b-form-select v-model="selected" :options="options"></b-form-select>
-    <b-form-select v-model="selected" :options="options"></b-form-select>
+    <b-form-select v-model="selected[0]" :options="options"></b-form-select>
+    <b-form-select v-model="selected[1]" :options="options"></b-form-select>
+    <b-form-select v-model="selected[2]" :options="options"></b-form-select>
+    <b-form-select v-model="selected[3]" :options="options"></b-form-select>
     <b-form-textarea
       id="textarea"
       v-model="text"
@@ -15,18 +15,6 @@
     ></b-form-textarea>
   </div>
 </template>
-<style>
-.select-container {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-</style>
 
 <script>
 export default {
@@ -40,6 +28,7 @@ export default {
         { value: 'd', text: 'This one is disabled', disabled: true },
       ],
       text: '',
+      selected: [null, null, null, null], // 선택된 값들을 배열로 저장
       selectedAreaHeight: 0, // selected 영역의 높이를 저장하는 변수
     };
   },

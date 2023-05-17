@@ -1,10 +1,8 @@
 <template>
   <div id="appmain">
-    <the-header-navbar></the-header-navbar>
     <main-slider-container></main-slider-container>
     <main-select-container></main-select-container>
     <main-card-group></main-card-group>
-
     <!-- TheHeaderNavbar.vue 컴포넌트가 랜더링 된다.
         vue파일의 이름,
         즉 컴포넌트를 의미하는 vue 파일의 이름으로 태그를 만들면 자동으로 연결된다. -->
