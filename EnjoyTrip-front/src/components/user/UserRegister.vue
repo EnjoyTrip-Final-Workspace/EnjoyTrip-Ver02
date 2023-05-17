@@ -1,13 +1,5 @@
  
 <template>
-  <!-- <b-container class="bv-example-row mt-3">
-    <b-row>
-      <b-col>
-        <b-alert variant="secondary" show><h3>회원가입</h3></b-alert>
-      </b-col>
-    </b-row>
-  </b-container> -->
-  <!-- 5.13 회원가입 추가 -->
    <b-container class="bv-example-row mt-3">
     <b-row>
       <b-col>
