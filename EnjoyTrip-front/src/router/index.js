@@ -1,10 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import AppMain from "@/views/AppMain";
-import AppHouse from "@/views/AppHouse";
 import AppAttraction from "@/views/AppAttraction";
+import AppAttractionDetail from "@/views/AppAttractionDetail";
 
 import store from "@/store";
+// import { component } from "vue/types/umd";
 
 Vue.use(VueRouter);
 
@@ -36,19 +37,19 @@ const routes = [
     component: AppMain,
   },
   {
-    path: "/house",
-    name: "house",
-    component: AppHouse,
-  },
-  {
     path: "/todo",
     name: "todo",
     component: () => import("@/views/AppTodo"),
   },
   {
-    path: "/attraction",
+    path: "/attr",
     name: "attr",
     component: AppAttraction,
+  },
+  {
+    path: "/detail",
+    name: "detail",
+    component: AppAttractionDetail,
   },
   {
     path: "/user",

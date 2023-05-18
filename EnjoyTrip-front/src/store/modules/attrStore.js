@@ -1,3 +1,4 @@
+
 /*
 <attrStore.js>
 Vuex 스토어 모듈을 정의하고 있습니다.
@@ -14,8 +15,10 @@ const attrStore = {
   namespaced: true,
   // namespaced 옵션을 true로 설정하여 모듈의 네임스페이스 사용을 활성화합니다. 이렇게 하면 다른 모듈과 충돌 없이 모듈을 사용할 수 있습니다.
   state: {
-    sidos: [{ value: null, text: "시/도 선택" }],
-    guguns: [{ value: null, text: "구/군 선택" }],
+
+    sidos: [{ value: null, text: "선택하세요" }],
+    guguns: [{ value: null, text: "선택하세요" }],
+    attr: null
   },
   /*
   상태 객체인 state를 정의합니다.
@@ -41,6 +44,9 @@ const attrStore = {
         state.guguns.push({ value: gugun.code, text: gugun.name });
       });
     },
+    SET_DETAIL_ATTR(state, attr) {
+      state.attr = attr;
+    },
   },
   actions: {
     getSido: ({ commit }) => {
@@ -60,6 +66,17 @@ const attrStore = {
         sidoCode,
         ({ data }) => {
           commit("SET_GUGUN_LIST", data);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    },
+    detailAttr: ({ commit }, contentId) => {
+      detail(
+        contentId,
+        ({ data }) => {
+          commit("SET_DETAIL_ATTR", data);
         },
         (error) => {
           console.log(error);

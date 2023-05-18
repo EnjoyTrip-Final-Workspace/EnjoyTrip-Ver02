@@ -87,6 +87,93 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.slider-container {
+  position: relative;
+  height: 100vh;
+}
+
+.b-carousel-control-prev-icon,
+.b-carousel-control-next-icon {
+  font-size: 2rem;
+}
+
+.b-carousel-indicator-icon {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.b-carousel-indicators .active .b-carousel-indicator-icon {
+  background-color: #fff;
+}
+
+.b-carousel-caption {
+  color: #fff;
+  text-shadow: 1px 1px 2px #333;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 15px;
+  border-radius: 4px;
+  bottom: 10px;
+}
+
+.b-carousel-caption h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.b-carousel-caption p {
+  font-size: 1rem;
+}
+
+.b-carousel-control-prev,
+.b-carousel-control-next {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.8;
+}
+
+.b-carousel-control-prev:hover,
+.b-carousel-control-next:hover {
+  opacity: 1;
+}
+
+.b-carousel-control-prev {
+  left: 10px;
+}
+
+.b-carousel-control-next {
+  right: 10px;
+}
+
+.b-carousel-indicators {
+  bottom: 10px;
+}
+
+.b-carousel-indicators li {
+  width: 10px;
+  height: 10px;
+  margin: 0 4px;
+  border-radius: 50%;
+}
+
+.b-carousel-indicators li button {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+.b-carousel-indicators li.active button {
+  background-color: #fff;
+}
+
 </style>
 
 <script>
@@ -104,15 +191,6 @@ export default {
       },
       slide: 0,
       sliding: null,
-      selected1: null,
-      selected2: null,
-      options: [
-        { value: null, text: 'Please select an option' },
-        { value: 'a', text: 'This is First option' },
-        { value: 'b', text: 'Selected Option' },
-        { value: { C: '3PO' }, text: 'This is an option with object value' },
-        { value: 'd', text: 'This one is disabled', disabled: true },
-      ],
     };
   },
   methods: {

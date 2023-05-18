@@ -1,5 +1,6 @@
 <template>
   <div id="appmain">
+    <!-- <attr-search-bar></attr-search-bar> -->
     <main-slider-container></main-slider-container>
     <main-select-container></main-select-container>
     <main-card-group></main-card-group>
@@ -14,16 +15,18 @@
 <!-- 컴포넌트를 연결시키기 위해서넌 script에서 import로 가져오는 것과,
 template 안에 태그를 사용하는 것. 두가지 모두 필요하다. -->
 <script>
-import MainCardGroup from '@/components/Main/MainCardGroup';
-import MainSelectContainer from '@/components/Main/MainSelectContainer';
-import MainSliderContainer from '@/components/Main/MainSliderContainer';
+import MainCardGroup from "@/components/Main/MainCardGroup";
+import MainSelectContainer from "@/components/Main/MainSelectContainer";
+import MainSliderContainer from "@/components/Main/MainSliderContainer";
+// import AttrSearchBar from '@/components/attraction/AttrSearchBar.vue';
 
 export default {
-  name: 'AppMain',
+  name: "AppMain",
   components: {
     MainCardGroup,
     MainSelectContainer,
     MainSliderContainer,
+    // AttrSearchBar,
   },
 };
 </script>
