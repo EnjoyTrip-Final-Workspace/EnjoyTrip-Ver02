@@ -1,10 +1,11 @@
-import { getSidoList, getGugunList } from "@/api/Attraction.js";
+import { getSidoList, getGugunList, detail } from "@/api/Attraction.js";
 
 const attrStore = {
   namespaced: true,
   state: {
     sidos: [{ value: null, text: "선택하세요" }],
     guguns: [{ value: null, text: "선택하세요" }],
+    attr: null
   },
   getters: {},
   mutations: {
@@ -25,6 +26,9 @@ const attrStore = {
         state.guguns.push({ value: gugun.code, text: gugun.name });
       });
     },
+    SET_DETAIL_ATTR(state, attr) {
+      state.attr = attr;
+    },
   },
   actions: {
     getSido: ({ commit }) => {
@@ -44,6 +48,17 @@ const attrStore = {
         sidoCode,
         ({ data }) => {
           commit("SET_GUGUN_LIST", data);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    },
+    detailAttr: ({ commit }, contentId) => {
+      detail(
+        contentId,
+        ({ data }) => {
+          commit("SET_DETAIL_ATTR", data);
         },
         (error) => {
           console.log(error);
