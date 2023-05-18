@@ -30,10 +30,6 @@
               <font-awesome-icon icon="heart" aria-hidden="true" style="font-size: 2em" />
               게시판
             </router-link>
-            <router-link :to="{ name: 'house' }" class="m-2 link">
-              <font-awesome-icon icon="heart" aria-hidden="true" style="font-size: 2em" />
-              아파트정보
-            </router-link>
             <router-link :to="{ name: 'todo' }" class="link">
               <font-awesome-icon icon="heart" aria-hidden="true" style="font-size: 2em" />
               TodoList
