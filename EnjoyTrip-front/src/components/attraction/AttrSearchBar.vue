@@ -79,7 +79,6 @@ export default {
   },
 
   created() {
-    // this.$store.dispatch("attractionStore/getSidos");
     this.CLEAR_SIDO_LIST();
     this.getSido();
   },
