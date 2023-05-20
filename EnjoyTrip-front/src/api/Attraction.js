@@ -15,9 +15,4 @@ function detail(contentId, success, fail) {
   api.get(`/attr/detail/${contentId}`).then(success).catch(fail);
 }
 
-
-// function getAttrList(search, success, fail){
-//   api.post(`/attr/search`, JSON.stringify(search)).then(success).catch(fail);
-// }
-
 export { getSidoList, getGugunList, detail};

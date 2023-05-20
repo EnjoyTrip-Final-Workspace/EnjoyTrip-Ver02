@@ -11,8 +11,7 @@
       <b-col cols="8">
         <b-card class="text-center mt-3" style="max-width: 40rem" align="left">
           <b-form class="text-left">
-            <b-alert show variant="danger" v-if="isRegisterError">회원가입 에러 메시지</b-alert>
-             <!-- <b-alert show variant="success" v-if="isRegisterSuccess">회원가입 성공</b-alert> -->
+            <b-alert show variant="danger" v-if="isUpdateError">정보수정 에러 메시지</b-alert>
             <b-form-group label="아이디:" label-for="userid">
               <b-form-input
                 id="userid"
@@ -46,7 +45,7 @@
                 placeholder="이메일 입력...."
               ></b-form-input>
             </b-form-group>
-            <b-button type="button" variant="success" class="m-1" @click="movePage">수정</b-button>
+            <b-button type="button" variant="success" class="m-1" @click="update">수정</b-button>
           </b-form>
         </b-card>
       </b-col>
@@ -56,7 +55,6 @@
 </template>
 
 <script>
-// 5.13 회원가입 추가
 import { mapState, mapActions } from "vuex";
 
 const memberStore = "memberStore";
@@ -66,6 +64,7 @@ export default {
   data() {
     return {
       user: {
+        userid: null,
         userpwd: null,
         username: null,
         email: null
@@ -75,30 +74,23 @@ export default {
 
   created() {
       this.user.userid = this.userInfo.userid;
-      this.isUserid = true;
   },
   computed: {
     ...mapState(memberStore, ["isUpdateError", "isUpdateSuccess", "userInfo"]),
-    isUpdateed() {
+    isUpdated() {
       return !this.isUpdateError;
     },
   },
   methods: {
     ...mapActions(memberStore, ["updateUser"]),
     async update() {
+      console.log(this.user);
       await this.updateUser(this.user);
       if (!this.isUpdateError) {
         this.$store.commit(`${memberStore}/SET_IS_UPDATE_SUCCESS`, true);
         alert("회원정보가 수정되었습니다!");
-        this.$router.push({ name: "login" });
-      } else {
-        this.$store.commit(`${memberStore}/SET_IS_UPDATE_ERROR`, true);
-        alert("회원정보 수정 실패!");
-        
-      }
-    },
-    movePage() {
-      this.$router.push({ name: "login" });
+        this.$router.push({ name: "mypage" });
+      } 
     },
   },
 };

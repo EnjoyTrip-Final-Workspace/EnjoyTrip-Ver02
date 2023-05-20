@@ -31,7 +31,7 @@ async function deleteMember(userid, success, fail) {
 }
 
 async function updateMember(user, success, fail) {
-  await api.put(`/user/delete`, JSON.stringify(user)).then(success).catch(fail);
+  await api.put(`/user/update`, JSON.stringify(user)).then(success).catch(fail);
 }
 
 
