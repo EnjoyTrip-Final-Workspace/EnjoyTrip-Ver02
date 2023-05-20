@@ -1,30 +1,176 @@
 <template>
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-12 col-md-6 offset-md-3">
-        <b-card-group deck>
-          <div class="row py-sm-2 py-md-4 py-lg-5">
-            <template v-for="index in 6">
-              <div class="col-sm-4" :key="`card1-${index}`">
-                <b-card
-                  :title="`Title: 1 - ${index}번`"
-                  img-src="https://picsum.photos/300/300/?image=41"
-                  img-alt="Image"
-                  img-top
-                  class="mb-4"
-                >
-                  <b-card-text>
-                    화이팅!!!!!!!!!!!!!
-                  </b-card-text>
-                  <template #footer>
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                  </template>
-                </b-card>
-              </div>
-            </template>
-          </div>
-        </b-card-group>
+    <div class="row justify-content-center align-items-center">
+      <div class="grid-container">
+        <div class="grid-cell">
+          <b-card
+            title="Card Title"
+            img-src="https://picsum.photos/600/300/?image=25"
+            img-alt="Image"
+            img-top
+            tag="article"
+            style="max-width: 20rem;"
+            class="mb-2"
+          >
+            <b-card-text>
+              Some quick example text to build on the card title and make up the bulk of the card's content.
+            </b-card-text>
+            <b-button href="#" variant="primary">Go somewhere</b-button>
+          </b-card>
+        </div>
+        <div class="grid-cell">
+          <b-card
+            title="Card Title"
+            img-src="https://picsum.photos/600/300/?image=26"
+            img-alt="Image"
+            img-top
+            tag="article"
+            style="max-width: 20rem;"
+            class="mb-2"
+          >
+            <b-card-text>
+              Some quick example text to build on the card title and make up the bulk of the card's content.
+            </b-card-text>
+            <b-button href="#" variant="primary">Go somewhere</b-button>
+          </b-card>
+        </div>
+        <div class="grid-cell">
+          <b-card
+            title="Card Title"
+            img-src="https://picsum.photos/600/300/?image=27"
+            img-alt="Image"
+            img-top
+            tag="article"
+            style="max-width: 20rem;"
+            class="mb-2"
+          >
+            <b-card-text>
+              Some quick example text to build on the card title and make up the bulk of the card's content.
+            </b-card-text>
+            <b-button href="#" variant="primary">Go somewhere</b-button>
+          </b-card>
+        </div>
+        <div class="grid-cell">
+          <b-card
+            title="Card Title"
+            img-src="https://picsum.photos/600/300/?image=28"
+            img-alt="Image"
+            img-top
+            tag="article"
+            style="max-width: 20rem;"
+            class="mb-2 d-none d-md-block"
+          >
+            <b-card-text>
+              Some quick example text to build on the card title and make up the bulk of the card's content.
+            </b-card-text>
+            <b-button href="#" variant="primary">Go somewhere</b-button>
+          </b-card>
+        </div>
+        <div class="grid-cell">
+          <b-card
+            title="Card Title"
+            img-src="https://picsum.photos/600/300/?image=29"
+            img-alt="Image"
+            img-top
+            tag="article"
+            style="max-width: 20rem;"
+            class="mb-2 d-none d-md-block"
+          >
+            <b-card-text>
+              Some quick example text to build on the card title and make up the bulk of the card's content.
+            </b-card-text>
+            <b-button href="#" variant="primary">Go somewhere</b-button>
+          </b-card>
+        </div>
+        <div class="grid-cell">
+          <b-card
+            title="Card Title"
+            img-src="https://picsum.photos/600/300/?image=30"
+            img-alt="Image"
+            img-top
+            tag="article"
+            style="max-width: 20rem;"
+            class="mb-2 d-none d-md-block"
+          >
+            <b-card-text>
+              Some quick example text to build on the card title and make up the bulk of the card's content.
+            </b-card-text>
+            <b-button href="#" variant="primary">Go somewhere</b-button>
+          </b-card>
+        </div>
+        <div class="grid-cell">
+          <b-card
+            title="Card Title"
+            img-src="https://picsum.photos/600/300/?image=31"
+            img-alt="Image"
+            img-top
+            tag="article"
+            style="max-width: 20rem;"
+            class="mb-2 d-none d-md-block"
+          >
+            <b-card-text>
+              Some quick example text to build on the card title and make up the bulk of the card's content.
+            </b-card-text>
+            <b-button href="#" variant="primary">Go somewhere</b-button>
+          </b-card>
+        </div>
+        <div class="grid-cell">
+          <b-card
+            title="Card Title"
+            img-src="https://picsum.photos/600/300/?image=32"
+            img-alt="Image"
+            img-top
+            tag="article"
+            style="max-width: 20rem;"
+            class="mb-2 d-none d-md-block"
+          >
+            <b-card-text>
+              Some quick example text to build on the card title and make up the bulk of the card's content.
+            </b-card-text>
+            <b-button href="#" variant="primary">Go somewhere</b-button>
+          </b-card>
+        </div>
+        <div class="grid-cell">
+          <b-card
+            title="Card Title"
+            img-src="https://picsum.photos/600/300/?image=33"
+            img-alt="Image"
+            img-top
+            tag="article"
+            style="max-width: 20rem;"
+            class="mb-2 d-none d-md-block"
+          >
+            <b-card-text>
+              Some quick example text to build on the card title and make up the bulk of the card's content.
+            </b-card-text>
+            <b-button href="#" variant="primary">Go somewhere</b-button>
+          </b-card>
+        </div>
       </div>
     </div>
   </div>
 </template>
+
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 3fr);
+  grid-gap: 1rem;
+}
+
+.grid-cell {
+  max-width: 20rem;
+}
+
+@media (max-width: 991px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 2fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+</style>

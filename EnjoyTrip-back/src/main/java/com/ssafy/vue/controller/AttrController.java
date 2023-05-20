@@ -33,6 +33,7 @@ public class AttrController {
         this.attrService = attrService;
     }
 
+    // select로 검색 조건 설정하면 그걸로 조회하는 컨트롤러
     @PostMapping("/search")
     public ResponseEntity<List<Attraction>> search(@RequestBody Search search) {
         try {
@@ -46,6 +47,40 @@ public class AttrController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+
+    // 메인 페이지에서 키워드 검색으로 조회하는 컨트롤러
+    @GetMapping("/keyword")
+    public ResponseEntity<List<Attraction>> keyword(@RequestParam String keyword) {
+        try {
+            logger.info(keyword);
+            logger.info("==================================");
+            List<Attraction> list = attrService.searchByKeyword(keyword); // 서비스 계층의 메소드 호출하여 검색 결과 가져오기
+            logger.info(list.toString());
+            return ResponseEntity.ok().body(list);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    // 메인 페이지에서 조회수 높은 인기 여행지 상위 9개를 가지오 와서 뿌려주는  컨트롤러 만들어야 함
+
+
+
+
+//    @PostMapping("/keyword")
+//    public ResponseEntity<List<Attraction>> keyword(@RequestBody Search search) {
+//        try {
+//            logger.info(search.getSido());
+//            logger.info("==================================");
+//            List<Attraction> list = attrService.keyword(word);
+//            logger.info(list.toString());
+//            return ResponseEntity.ok().body(list);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+//        }
+//    }
     
 
     @GetMapping("/detail/{contentId}")

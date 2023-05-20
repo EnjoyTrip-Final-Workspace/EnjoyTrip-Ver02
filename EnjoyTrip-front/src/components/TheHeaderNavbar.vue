@@ -18,10 +18,11 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <b-nav-item id="item" href="#">
-            <router-link :to="{ name: 'main' }" class="link"> 메인 </router-link>
+            <router-link :to="{ name: 'main' }" class="m-2 link"> 메인 </router-link>
             <router-link :to="{ name: 'attr' }" class="m-2 link"> 여행지 </router-link>
             <router-link :to="{ name: 'board' }" class="m-2 link"> 게시판 </router-link>
-            <router-link :to="{ name: 'todo' }" class="link"> TodoList </router-link>
+            <router-link :to="{ name: 'todo' }" class="m-2 link"> TodoList </router-link>
+            <router-link :to="{ name: 'search' }" class="m-2 link">검색(테스트)</router-link>
           </b-nav-item>
         </b-navbar-nav>
 

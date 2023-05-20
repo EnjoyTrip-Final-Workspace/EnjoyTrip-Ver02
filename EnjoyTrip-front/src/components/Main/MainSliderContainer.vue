@@ -79,7 +79,7 @@
 
 .select-container {
   position: absolute;
-  top: 30%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -173,6 +173,7 @@
 .b-carousel-indicators li.active button {
   background-color: #fff;
 }
+
 </style>
 
 <script>
