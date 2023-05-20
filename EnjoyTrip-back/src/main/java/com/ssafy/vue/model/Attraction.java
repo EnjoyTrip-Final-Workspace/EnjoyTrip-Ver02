@@ -1,11 +1,15 @@
 package com.ssafy.vue.model;
 
+import java.math.BigDecimal;
+
 public class Attraction {
 	private int contentId;
 	private String title;
 	private String addr;
 	private String img;
 	private String overview;
+	private BigDecimal latitude;
+	private BigDecimal longitude;
 
 	public int getContentId() {
 		return contentId;
@@ -37,4 +41,18 @@ public class Attraction {
 	public void setOverview(String overview) {
 		this.overview = overview;
 	}
+	public BigDecimal getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(BigDecimal latitude) {
+		this.latitude = latitude;
+	}
+	public BigDecimal getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(BigDecimal longitude) {
+		this.longitude = longitude;
+	}
+	
+	
 }

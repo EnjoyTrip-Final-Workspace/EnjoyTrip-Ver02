@@ -173,7 +173,6 @@
 .b-carousel-indicators li.active button {
   background-color: #fff;
 }
-
 </style>
 
 <script>

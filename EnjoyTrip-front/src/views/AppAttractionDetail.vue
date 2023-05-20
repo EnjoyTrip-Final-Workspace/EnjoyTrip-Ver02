@@ -7,17 +7,20 @@
     <b-row>
       <b-col>
         <attr-detail></attr-detail>
+        <attr-detail-map></attr-detail-map>
       </b-col>
     </b-row>
   </b-container>
 </template>
 <script>
 import AttrDetail from "@/components/attraction/AttrDetail.vue";
+import AttrDetailMap from '@/components/attraction/AttrDetailMap.vue';
 
 export default {
   name: "AppAttractionDetail",
   components: {
     AttrDetail,
+    AttrDetailMap
   },
 };
 </script>

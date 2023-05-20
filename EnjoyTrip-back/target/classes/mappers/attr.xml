@@ -10,6 +10,8 @@
         <result column="addr1" property="addr"/>
         <result column="first_image" property="img"/>
         <result column="overview" property="overview"/>
+        <result column="latitude" property="latitude"/>
+        <result column="longitude" property="longitude"/>
     </resultMap>
 
 	<resultMap id="sidoMap" type="sido">
@@ -43,7 +45,7 @@
 	
     
     <select id="selectAttrById" resultMap="attrResultMap" parameterType="string">
-        select a.content_id, a.title, a.addr1, a.first_image, b.overview
+        select a.content_id, a.title, a.addr1, a.first_image, b.overview, a.latitude, a.longitude
         from attraction_info a, attraction_description b
         where a.content_id = b.content_id and b.content_id = #{contentId}
     </select>

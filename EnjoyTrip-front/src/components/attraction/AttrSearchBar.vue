@@ -79,6 +79,7 @@ export default {
   },
 
   created() {
+    // this.$store.dispatch("attractionStore/getSidos");
     this.CLEAR_SIDO_LIST();
     this.getSido();
   },
@@ -94,7 +95,7 @@ export default {
     searchAttr() {
       const searchParams = {
         sido: this.sidoCode,
-        gugun_code: this.gugunCode,
+        gugun: this.gugunCode,
         type: this.type,
         addr: this.keyword,
       };

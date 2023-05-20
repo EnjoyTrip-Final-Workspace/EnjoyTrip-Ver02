@@ -1,7 +1,7 @@
 import jwtDecode from "jwt-decode";
 import router from "@/router";
 // 0513 회원가입추가 
-import { login, findById, tokenRegeneration, logout, signup, deleteMember } from "@/api/member";
+import { login, findById, tokenRegeneration, logout, signup, deleteMember, updateMember } from "@/api/member";
 
 const memberStore = {
   namespaced: true,
@@ -13,7 +13,10 @@ const memberStore = {
     // 0513 회원가입추가 
     isRegisterError: false,
     isRegisterSuccess: false,
-    isDeleteSuccess: false
+    isDeleteSuccess: false,
+    isDeleteError: false,
+    isUpdateSuccess: false,
+    isUpdateError: false,
   },
   getters: {
     checkUserInfo: function (state) {
@@ -45,12 +48,38 @@ const memberStore = {
     SET_IS_REGISTER_SUCCESS: (state, isRegisterSuccess) => {
       state.isRegisterSuccess = isRegisterSuccess;
     },
-    // 0513 회원탈퇴 성공 추가
+    // 0513 회원탈퇴 성공, 실패 추가
     SET_IS_DELETE_SUCCESS: (state, isDeleteSuccess) => {
       state.isDeleteSuccess = isDeleteSuccess;
-    }
+    },
+    SET_IS_DELETE_ERROR: (state, isDeleteError) => {
+      state.isDeleteError = isDeleteError;
+    },
+    // 0513 회원정보 수정 성공 추가
+    SET_IS_UPDATE_SUCCESS: (state, isUpdateSuccess) => {
+      state.isUpdateSuccess = isUpdateSuccess;
+    },
+    SET_IS_UPDATE_ERROR: (state, isUpdateError) => {
+      state.isUpdateError = isUpdateError;
+    },
+    
   },
   actions: {
+    // 0519 회원정보 수정 기능 추가
+    async updateUser({ commit }, user) {
+      await updateMember(
+        user,
+        ({ data }) => {
+          if (data.message === "success") {
+            commit("SET_IS_UPDATE_SUCCESS", true);
+          }
+        },
+        (error) => {
+          console.log(error);
+          commit("SET_IS_UPDATE_ERROR", true);
+        }
+      );
+    },
     // 0514 회원탈퇴 기능 추가
     async deleteUser({ commit }, userid) {
       await deleteMember(
@@ -62,10 +91,11 @@ const memberStore = {
         },
         (error) => {
           console.log(error);
-          commit("SET_IS_DELETE_SUCCESS", true);
+          commit("SET_IS_DELETE_ERROR", true);
         }
       );
     },
+    
 
     // 0513 회원가입 기능 추가
     async registerUser({ commit }, user) {

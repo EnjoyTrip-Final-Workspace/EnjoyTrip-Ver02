@@ -42,8 +42,7 @@
             </b-row>
           </b-container>
           <hr class="my-4" />
-
-          <b-button variant="primary" href="#" class="mr-1">정보수정</b-button>
+          <b-button variant="primary" @click="goToModify">정보수정</b-button>
           <!-- 0513 회원 탈퇴 기능 추가 -->
           <b-button variant="danger" @click="deleteAccount">회원탈퇴</b-button>
         </b-jumbotron>
@@ -76,6 +75,10 @@ export default {
         alert("회원탈퇴 되었습니다.");
         this.$router.push({ name: "login" });
       });
+    },
+    
+    goToModify() {
+      this.$router.push({ name: "modify" });
     },
   },
 };
