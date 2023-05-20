@@ -44,4 +44,10 @@ public class AttrServiceImpl implements AttrService {
 	public List<Sido> getSido() throws Exception {
 		return attrMapper.getSido();
 	}
+
+	@Override
+	public List<Attraction> searchByKeyword(String keyword) throws Exception {
+		return attrMapper.selectAttrByKeyword(keyword);
+	}
+
 }

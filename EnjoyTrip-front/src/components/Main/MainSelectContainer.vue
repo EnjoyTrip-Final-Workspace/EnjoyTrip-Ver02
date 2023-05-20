@@ -1,8 +1,5 @@
 <template>
   <div class="select-container">
-    <b-form-select v-model="sidoCode" :options="sidos" @change="gugunList"></b-form-select>
-    <b-form-select v-model="gugunCode" :options="guguns"></b-form-select>
-    <b-form-select v-model="type" :options="attrTypes"></b-form-select>
     <b-form-input v-model="keyword" placeholder="Key Word"></b-form-input>
     <b-button class="search-button" @click="searchAttr">검색</b-button>
   </div>

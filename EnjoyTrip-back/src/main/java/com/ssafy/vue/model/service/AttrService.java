@@ -21,6 +21,5 @@ public interface AttrService {
 	// 0516 시도추가
 	List<Sido> getSido() throws Exception;
 
-
-
+	List<Attraction> searchByKeyword(String keyword) throws Exception;
 }

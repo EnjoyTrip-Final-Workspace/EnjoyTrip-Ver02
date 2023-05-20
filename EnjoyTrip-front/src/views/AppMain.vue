@@ -7,7 +7,7 @@
     <!-- TheHeaderNavbar.vue 컴포넌트가 랜더링 된다.
         vue파일의 이름,
         즉 컴포넌트를 의미하는 vue 파일의 이름으로 태그를 만들면 자동으로 연결된다. -->
-    <router-view></router-view>
+    <!-- <router-view></router-view> -->
     <!-- router 폴더 안에 있는 index.js에 따라서 
         현재 url에 따라서 해당하는 컴포넌트가 동적으로 랜더링 된다. -->
   </div>

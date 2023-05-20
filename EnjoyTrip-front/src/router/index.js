@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import AppMain from "@/views/AppMain";
 import AppAttraction from "@/views/AppAttraction";
 import AppAttractionDetail from "@/views/AppAttractionDetail";
+import AppSearch from "@/views/AppSearch";
 
 import store from "@/store";
 // import { component } from "vue/types/umd";
@@ -35,6 +36,11 @@ const routes = [
     path: "/",
     name: "main",
     component: AppMain,
+  },
+  {
+    path: "/search",
+    name: "search",
+    component: AppSearch,
   },
   {
     path: "/todo",

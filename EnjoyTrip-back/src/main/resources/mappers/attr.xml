@@ -42,6 +42,15 @@
 	  </if>
 	  <!-- limit 3 -->
 	</select>
+
+	<select id="selectAttrByKeyword" resultMap="attrResultMap" parameterType="string">
+		SELECT *
+		FROM attraction_info a
+		JOIN attraction_description b ON a.content_id = b.content_id
+		WHERE a.title LIKE CONCAT('%', #{keyword}, '%') OR a.addr1 LIKE CONCAT('%', #{keyword}, '%')
+		ORDER BY readcount
+		LIMIT 9;
+	</select>
 	
     
     <select id="selectAttrById" resultMap="attrResultMap" parameterType="string">

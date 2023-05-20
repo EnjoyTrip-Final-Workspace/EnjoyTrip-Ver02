@@ -13,7 +13,7 @@
       <b-form-input v-model="keyword"></b-form-input>
     </b-col>
     <b-col sm="12" class="mt-2">
-      <b-button @click="searchAttr" variant="primary" class="custom-button">검색</b-button>
+      <b-button @click="handleSearch" variant="primary" class="custom-button">검색</b-button>
     </b-col>
 
     <div v-if="attractions.length > 0">
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import axios from "axios"; // 추가한거
+// import axios from "axios"; // 추가한거
 import { mapState, mapActions, mapMutations } from "vuex";
 
 const attrStore = "attrStore";
@@ -53,7 +53,7 @@ export default {
   name: "AttrSearchBar",
   data() {
     return {
-      attractions: [], // 추가한거
+      // attractions: [], // 추가한거
 
       sidoCode: null,
       gugunCode: null,
@@ -62,7 +62,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(attrStore, ["sidos", "guguns"]),
+    ...mapState(attrStore, ["sidos", "guguns", "attractions"]),
     attrTypes() {
       return [
         { value: 0, text: "관광지 유형" },
@@ -85,14 +85,21 @@ export default {
   },
 
   methods: {
-    ...mapActions(attrStore, ["getSido", "getGugun"]),
+    ...mapActions(attrStore, ["getSido", "getGugun", "searchByParams"]),
+    /*
+    getSido 액션은 데이터베이스에서 sido의 목록을 받아온다.
+    getGugun 액션은 데이터베이스에서 gugun의 목록을 맏아온다.
+    액션이 실행되면 commit으로 mutation의 SET_SIDO_LIST, SET_GUGUN_LIST
+    가 실행되어 state에 sido와 gugun을 숫자-이름 형식으로 집어 넣는다.
+    */
     ...mapMutations(attrStore, ["CLEAR_SIDO_LIST", "CLEAR_GUGUN_LIST"]),
+    
     gugunList() {
       this.CLEAR_GUGUN_LIST();
       this.gugunCode = null;
       if (this.sidoCode) this.getGugun(this.sidoCode);
     },
-    searchAttr() {
+    handleSearch() {
       const searchParams = {
         sido: this.sidoCode,
         gugun: this.gugunCode,
@@ -100,16 +107,18 @@ export default {
         addr: this.keyword,
       };
 
-      axios
-        .post("http://localhost:9999/vue/attr/search", searchParams)
-        .then((response) => {
-          const attractions = response.data;
-          this.attractions = attractions; // 받아온 데이터를 Vue 데이터에 저장
-          console.log(attractions);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      this.searchByParams(searchParams);
+
+      // axios
+      //   .post("http://localhost:9999/vue/attr/search", searchParams)
+      //   .then((response) => {
+      //     const attractions = response.data;
+      //     this.attractions = attractions; // 받아온 데이터를 Vue 데이터에 저장
+      //     console.log(attractions);
+      //   })
+      //   .catch((error) => {
+      //     console.error(error);
+      //   });
     },
 
     // 빈 이미지 처리
