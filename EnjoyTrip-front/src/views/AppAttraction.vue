@@ -1,29 +1,22 @@
 <template>
   <b-container class="bv-example-row mt-3 text-center">
     <h3 class="underline-orange">
-      <!--b-icon icon="house-fill"><b-icon>-->
+      <b-icon icon="compass-fill" class="icon"></b-icon>
       여행지 검색
     </h3>
-    <b-row>
-      <b-col>
-        <!-- <b-img alt="Happy House" :src="require('@/assets/happyhouse.png')" /> -->
-      </b-col>
-    </b-row>
     <b-row>
       <b-col>
         <attr-search-bar></attr-search-bar>
       </b-col>
     </b-row>
     <b-row>
-      <b-col cols="6" align="left">
-        <!-- <house-list /> -->
-      </b-col>
-      <b-col cols="6">
-        <!-- <house-detail /> -->
+      <b-col cols="12">
+        <!-- 여기에 원하는 내용을 추가하세요 -->
       </b-col>
     </b-row>
   </b-container>
 </template>
+
 <script>
 import AttrSearchBar from "@/components/attraction/AttrSearchBar.vue";
 
@@ -34,12 +27,30 @@ export default {
   },
 };
 </script>
+
 <style scoped>
-* {
-  font-family: font;
+
+.icon {
+  font-size: 2rem;
+  margin-right: 0.5rem;
+  color: #007bff;
 }
+
 .underline-orange {
   display: inline-block;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 70%, rgba(231, 149, 27, 0.3) 30%);
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #007bff;
+  margin-bottom: 2rem;
+}
+
+.bv-example-row {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+attr-search-bar {
+  margin-bottom: 2rem;
 }
 </style>

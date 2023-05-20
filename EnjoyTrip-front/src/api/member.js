@@ -30,4 +30,9 @@ async function deleteMember(userid, success, fail) {
   await api.delete(`/user/delete/${userid}`).then(success).catch(fail);
 }
 
-export { login, findById, tokenRegeneration, logout, signup, deleteMember };
+async function updateMember(user, success, fail) {
+  await api.put(`/user/update`, JSON.stringify(user)).then(success).catch(fail);
+}
+
+
+export { login, findById, tokenRegeneration, logout, signup, deleteMember, updateMember };

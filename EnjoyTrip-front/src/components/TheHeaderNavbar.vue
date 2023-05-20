@@ -18,25 +18,10 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <b-nav-item id="item" href="#">
-            <router-link :to="{ name: 'main' }" class="m-2 link">
-              <!-- <b-icon icon="house-door" animation="" font-scale="2" color="black"></b-icon> -->
-              <!-- <i class="bi bi-airplane" aria-hidden="true" style="font-size: 2em"></i> -->
-              <font-awesome-icon icon="heart" aria-hidden="true" style="font-size: 2em" />
-              메인
-            </router-link>
-            <router-link :to="{ name: 'attr' }" class="m-2 link">
-              <!-- <i class="bi bi-airplane" aria-hidden="true" style="font-size: 2em"></i> -->
-              <font-awesome-icon icon="heart" aria-hidden="true" style="font-size: 2em" />
-              여행지
-            </router-link>
-            <router-link :to="{ name: 'board' }" class="m-2 link">
-              <font-awesome-icon icon="heart" aria-hidden="true" style="font-size: 2em" />
-              게시판
-            </router-link>
-            <router-link :to="{ name: 'todo' }" class="link">
-              <font-awesome-icon icon="heart" aria-hidden="true" style="font-size: 2em" />
-              TodoList
-            </router-link>
+            <router-link :to="{ name: 'main' }" class="link"> 메인 </router-link>
+            <router-link :to="{ name: 'attr' }" class="m-2 link"> 여행지 </router-link>
+            <router-link :to="{ name: 'board' }" class="m-2 link"> 게시판 </router-link>
+            <router-link :to="{ name: 'todo' }" class="link"> TodoList </router-link>
           </b-nav-item>
         </b-navbar-nav>
 
@@ -79,21 +64,21 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions } from 'vuex';
+import { mapState, mapGetters, mapActions } from "vuex";
 
-const memberStore = 'memberStore';
+const memberStore = "memberStore";
 
 export default {
-  name: 'TheHeaderNavbar',
+  name: "TheHeaderNavbar",
   data() {
     return {};
   },
   computed: {
-    ...mapState(memberStore, ['isLogin', 'userInfo', 'isDeleteSuccess']),
-    ...mapGetters(['checkUserInfo']),
+    ...mapState(memberStore, ["isLogin", "userInfo", "isDeleteSuccess"]),
+    ...mapGetters(["checkUserInfo"]),
   },
   methods: {
-    ...mapActions(memberStore, ['userLogout']),
+    ...mapActions(memberStore, ["userLogout"]),
     // ...mapMutations(memberStore, ["SET_IS_LOGIN", "SET_USER_INFO"]),
     onClickLogout() {
       // this.SET_IS_LOGIN(false);
@@ -105,9 +90,9 @@ export default {
       //+ satate에 isLogin, userInfo 정보 변경)
       // this.$store.dispatch("userLogout", this.userInfo.userid);
       this.userLogout(this.userInfo.userid);
-      sessionStorage.removeItem('access-token'); //저장된 토큰 없애기
-      sessionStorage.removeItem('refresh-token'); //저장된 토큰 없애기
-      if (this.$route.path != '/') this.$router.push({ name: 'main' });
+      sessionStorage.removeItem("access-token"); //저장된 토큰 없애기
+      sessionStorage.removeItem("refresh-token"); //저장된 토큰 없애기
+      if (this.$route.path != "/") this.$router.push({ name: "main" });
     },
   },
 };
@@ -120,9 +105,5 @@ export default {
 
 .link {
   text-decoration: none;
-}
-
-.my-custom-navbar {
-  background-color: transparent;
 }
 </style>
