@@ -4,8 +4,8 @@ public class Search {
 	private String sido;
 	private String gugun;
 	private String type;
-	private String addr;
-	
+	private String keyword;
+
 	public String getSido() {
 		return sido;
 	}
@@ -24,11 +24,6 @@ public class Search {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public String getAddr() {
-		return addr;
-	}
-	public void setAddr(String addr) {
-		this.addr = addr;
-	}
-
+	public String getKeyword() { return keyword; }
+	public void setKeyword(String keyword) { this.keyword = keyword; }
 }

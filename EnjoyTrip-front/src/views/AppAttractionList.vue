@@ -7,6 +7,7 @@
     <b-row>
       <b-col>
         <attr-search-bar></attr-search-bar>
+        <attr-card-group></attr-card-group>
       </b-col>
     </b-row>
     <b-row>
@@ -18,12 +19,14 @@
 </template>
 
 <script>
-import AttrSearchBar from "@/components/attraction/AttrSearchBar.vue";
+import AttrSearchBar from "@/components/search/AttrSearchBar.vue";
+import AttrCardGroup from "@/components/search/AttrCardGroup.vue";
 
 export default {
   name: "AppAttraction",
   components: {
     AttrSearchBar,
+    AttrCardGroup,
   },
 };
 </script>

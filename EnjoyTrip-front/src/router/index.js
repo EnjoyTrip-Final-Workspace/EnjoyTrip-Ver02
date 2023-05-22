@@ -1,9 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import AppMain from "@/views/AppMain";
-import AppAttraction from "@/views/AppAttraction";
+import AppAttractionList from "@/views/AppAttractionList";
 import AppAttractionDetail from "@/views/AppAttractionDetail";
-import AppSearch from "@/views/AppSearch";
 
 import store from "@/store";
 // import { component } from "vue/types/umd";
@@ -38,11 +37,6 @@ const routes = [
     component: AppMain,
   },
   {
-    path: "/search",
-    name: "search",
-    component: AppSearch,
-  },
-  {
     path: "/todo",
     name: "todo",
     component: () => import("@/views/AppTodo"),
@@ -50,7 +44,7 @@ const routes = [
   {
     path: "/attr",
     name: "attr",
-    component: AppAttraction,
+    component: AppAttractionList,
   },
   {
     path: "/detail",

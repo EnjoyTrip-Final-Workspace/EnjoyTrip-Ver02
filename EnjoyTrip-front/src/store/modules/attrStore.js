@@ -1,5 +1,3 @@
-import { getSidoList, getGugunList, detail } from "@/api/Attraction.js";
-
 
 /*
 <attrStore.js>
@@ -18,7 +16,13 @@ const attrStore = {
     sidos: [{ value: null, text: "선택하세요" }],
     guguns: [{ value: null, text: "선택하세요" }],
     // attrs: [],
-    attractions: [] // 검색 결과를 담을 배열
+    // attractions: [] // 검색 결과를 담을 배열
+    attractions: {
+      img: '', // 이미지 속성의 기본 값 설정
+      title: '',
+      addr: '',
+      overview: ''
+    }
   },
   getters: {},
   mutations: {
@@ -39,8 +43,8 @@ const attrStore = {
         state.guguns.push({ value: gugun.code, text: gugun.name });
       });
     },
-    SET_DETAIL_ATTR(state, attr) {
-      state.attr = attr;
+    SET_DETAIL_ATTR(state, attractions) {
+      state.attractions = attractions;
     },
     SET_ATTRACTIONS(state, attractions) {
       state.attractions = attractions;
@@ -62,9 +66,7 @@ const attrStore = {
       );
     },
     getGugun: ({ commit }, sidoCode) => {
-      // const params = { sido: sidoCode };
       getGugunList(
-        // params,
         sidoCode,
         ({ data }) => {
           commit("SET_GUGUN_LIST", data);

@@ -30,19 +30,13 @@ public class AttrServiceImpl implements AttrService {
 	}
 
 	@Override
-	public List<Sido> sido() throws Exception {
-		return attrMapper.selectSido();
-	}
-
-	@Override
 	public List<gugun> getGugun(int code) throws Exception {
 		return attrMapper.selectGugun(code);
 	}
 
-	// 0516 시도추가
 	@Override
 	public List<Sido> getSido() throws Exception {
-		return attrMapper.getSido();
+		return attrMapper.selectSido();
 	}
 
 	@Override
