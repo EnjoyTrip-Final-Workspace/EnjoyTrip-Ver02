@@ -19,9 +19,6 @@ import com.ssafy.vue.model.Sido;
 import com.ssafy.vue.model.gugun;
 import com.ssafy.vue.model.service.AttrService;
 
-import io.swagger.annotations.ApiParam;
-
-
 @RestController
 @RequestMapping("/attr")
 public class AttrController {
@@ -63,26 +60,7 @@ public class AttrController {
         }
     }
 
-    // 메인 페이지에서 조회수 높은 인기 여행지 상위 9개를 가지오 와서 뿌려주는  컨트롤러 만들어야 함
-
-
-
-
-//    @PostMapping("/keyword")
-//    public ResponseEntity<List<Attraction>> keyword(@RequestBody Search search) {
-//        try {
-//            logger.info(search.getSido());
-//            logger.info("==================================");
-//            List<Attraction> list = attrService.keyword(word);
-//            logger.info(list.toString());
-//            return ResponseEntity.ok().body(list);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-//        }
-//    }
-    
-
+    // 상세 페이지에서 선택한 contentId로 조회하는 컨트롤러
     @GetMapping("/detail/{contentId}")
     public ResponseEntity<Attraction> detail(@PathVariable String contentId) {
         try {
@@ -94,6 +72,7 @@ public class AttrController {
         }
     }
 
+    // 선택한 sido 코드에 따라 gugun을 보여주는 컨틀롤러
     @GetMapping("/gugun/{sidoCode}")
     public ResponseEntity<List<gugun>> getGugun(@PathVariable("sidoCode") int sidocode) {
         try {
@@ -105,7 +84,7 @@ public class AttrController {
         }
     }
     
-    // 0516 시도추가
+    // sido 코드를 가지고 와서 보여준다.
     @GetMapping("/sido")
     public ResponseEntity<List<Sido>> getGugun() {
         try {

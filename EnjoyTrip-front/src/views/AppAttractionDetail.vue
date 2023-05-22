@@ -13,8 +13,8 @@
   </b-container>
 </template>
 <script>
-import AttrDetail from "@/components/attraction/AttrDetail.vue";
-import AttrDetailMap from '@/components/attraction/AttrDetailMap.vue';
+import AttrDetail from "@/components/detail/AttrDetail.vue";
+import AttrDetailMap from '@/components/detail/AttrDetailMap.vue';
 
 export default {
   name: "AppAttractionDetail",

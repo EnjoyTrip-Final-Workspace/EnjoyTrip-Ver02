@@ -14,11 +14,8 @@ public interface AttrService {
 
 	Attraction detail(String contentId) throws Exception;
 
-	List<Sido> sido() throws Exception;
-
 	List<gugun> getGugun(int code) throws Exception;
 
-	// 0516 시도추가
 	List<Sido> getSido() throws Exception;
 
 	List<Attraction> searchByKeyword(String keyword) throws Exception;

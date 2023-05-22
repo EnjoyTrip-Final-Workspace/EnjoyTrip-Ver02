@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div v-if="attractions.length > 0" class="container">
     <div class="row">
       <div
         v-for="attraction in attractions"
@@ -38,7 +38,7 @@ import { mapState } from 'vuex';
 const attrStore = 'attrStore';
 
 export default {
-  name: 'AttrShowByKeyword',
+  name: 'AttrCardGroup',
   computed: {
     ...mapState(attrStore, ['attractions']),
   },
@@ -47,10 +47,11 @@ export default {
     replaceImg(e) {
       e.target.src = require(`@/assets/close.png`);
     },
-    // showDetailPage(contentId) {
-    //   // 상세 페이지 표시 로직 추가
-    //   // contentId에 기반하여 상세 페이지를 표시하는 코드 작성
-    // },
+    showDetailPage(contentId) {
+      console.log(contentId);
+      this.$store.dispatch('attrStore/detailAttr', contentId);
+      this.$router.push('/detail')
+    },
   },
 };
 </script>
