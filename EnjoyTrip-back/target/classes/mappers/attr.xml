@@ -62,6 +62,15 @@
 		where b.content_id = #{contentId}
 	</select>
 
+	<!-- 랜덤 여행지를 조회하는 쿼리 -->
+	<select id="selectRandomAttractions" resultMap="attrResultMap">
+		SELECT a.content_id, a.title, a.addr1, a.first_image, b.overview
+		FROM attraction_info a
+		JOIN attraction_description b ON a.content_id = b.content_id
+		ORDER BY RAND()
+		LIMIT 9;
+	</select>
+
 	<!-- AttrSerchBar.vue에서 여행지의 sido를 정하려고 선택하세요를 누르면 시도 목록을 보여준다.
 	시도 코드는 어떤 것에 의해 결정되는 것이 아니니, 그냥 가지고 오면 된다. -->
 	<select id="selectSido" resultMap="sidoMap">

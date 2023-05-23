@@ -22,5 +22,9 @@ function searchByParams(searchParams, success, fail) {
   api.post(`/attr/search`, JSON.stringify(searchParams)).then(success).catch(fail);
 }
 
-export { getSidoList, getGugunList, detail, searchByKeyword, searchByParams };
+function getRandomAttractions(success, fail) {
+  api.get('/attr/main').then(success).catch(fail);
+}
+
+export { getSidoList, getGugunList, detail, searchByKeyword, searchByParams, getRandomAttractions };
 

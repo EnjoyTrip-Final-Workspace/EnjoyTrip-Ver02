@@ -19,4 +19,6 @@ public interface AttrService {
 	List<Sido> getSido() throws Exception;
 
 	List<Attraction> searchByKeyword(String keyword) throws Exception;
+
+	List<Attraction> getRandomAttractions() throws Exception;
 }

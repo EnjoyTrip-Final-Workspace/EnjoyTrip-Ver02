@@ -44,4 +44,9 @@ public class AttrServiceImpl implements AttrService {
 		return attrMapper.selectAttrByKeyword(keyword);
 	}
 
+	@Override
+	public List<Attraction> getRandomAttractions() throws Exception {
+		return attrMapper.selectRandomAttractions();
+	}
+
 }

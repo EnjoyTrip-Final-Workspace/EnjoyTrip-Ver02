@@ -23,4 +23,6 @@ public interface AttrMapper {
 	List<gugun> selectGugun(int code) throws SQLException;
 
 	List<Attraction> selectAttrByKeyword(String keyword) throws SQLException;
+
+    List<Attraction> selectRandomAttractions() throws SQLException;
 }

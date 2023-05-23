@@ -4,13 +4,11 @@ Vuex 스토어 모듈을 정의하고 있습니다.
 이 모듈은 시도와 구군 목록을 상태로 가지고 있으며,
 해당 목록을 비동기적으로 가져오는 액션과 목록을 업데이트하는 뮤테이션을 포함합니다.
 */
-import {
-  getSidoList,
-  getGugunList,
-  detail,
-  searchByKeyword,
-  searchByParams,
-} from "@/api/Attraction.js";
+
+// import { getSidoList, getGugunList, detail, searchByKeyword, searchByParams, getRandomAttractions } from "@/api/Attraction.js";
+import { getSidoList, getGugunList, detail, searchByKeyword, searchByParams} from "@/api/Attraction.js";
+
+// ... (이하 코드 생략)
 /*
 "@/api/Attraction.js" 파일에서 getSidoList와 getGugunList 함수를 가져옵니다.
 이 함수들은 시도와 구군 목록을 가져오기 위해 백엔드 API와 통신하는 역할을 할 것으로 예상됩니다.
@@ -20,14 +18,15 @@ const attrStore = {
   state: {
     sidos: [{ value: null, text: "선택하세요" }],
     guguns: [{ value: null, text: "선택하세요" }],
-    // attrs: [],
-    // attractions: [] // 검색 결과를 담을 배열
+
     attractions: {
-      img: "", // 이미지 속성의 기본 값 설정
-      title: "",
-      addr: "",
-      overview: "",
+
+      img: '', // 이미지 속성의 기본 값 설정
+      title: '',
+      addr: '',
+      overview: ''
     },
+    // randomAttractions: [] // 랜덤 여행지 데이터를 저장할 배열
   },
   getters: {},
   mutations: {
@@ -54,6 +53,10 @@ const attrStore = {
     SET_ATTRACTIONS(state, attractions) {
       state.attractions = attractions;
     },
+
+    SET_RANDOM_ATTRACTIONS(state, attractions) {
+      state.randomAttractions = attractions;
+    }
   },
   actions: {
     getSido: ({ commit }) => {
@@ -107,13 +110,27 @@ const attrStore = {
         (response) => {
           const attractions = response.data;
           commit("SET_ATTRACTIONS", attractions);
-          console.log(attractions);
+
+          console.log(attractions)
         },
         (error) => {
           console.log(error);
         }
       );
     },
+    
+    // getRandomAttractions: ({ commit }) => {
+    //   getRandomAttractions(
+    //     (response) => {
+    //       const randomAttractions = response.data;
+    //       commit("SET_RANDOM_ATTRACTIONS", randomAttractions);
+    //       console.log(randomAttractions);
+    //     },
+    //     (error) => {
+    //       console.log(error);
+    //     }
+    //   );
+    // },
   },
 };
 

@@ -95,4 +95,17 @@ public class AttrController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+
+    // 메인페이지에 랜덤으로 여행지를 띄울 코드
+    @GetMapping("/main")
+    public ResponseEntity<List<Attraction>> getRandomAttractions() {
+        try {
+            List<Attraction> attractions = attrService.getRandomAttractions(); // 서비스 계층의 메소드 호출하여 랜덤 여행지 조회
+            return ResponseEntity.ok().body(attractions);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
 }
