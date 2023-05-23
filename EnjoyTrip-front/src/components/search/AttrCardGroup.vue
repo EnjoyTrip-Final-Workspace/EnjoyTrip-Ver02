@@ -33,14 +33,14 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 
-const attrStore = 'attrStore';
+const attrStore = "attrStore";
 
 export default {
-  name: 'AttrCardGroup',
+  name: "AttrCardGroup",
   computed: {
-    ...mapState(attrStore, ['attractions']),
+    ...mapState(attrStore, ["attractions"]),
   },
   methods: {
     // 비어있는 이미지 처리
@@ -49,8 +49,8 @@ export default {
     },
     showDetailPage(contentId) {
       console.log(contentId);
-      this.$store.dispatch('attrStore/detailAttr', contentId);
-      this.$router.push('/detail')
+      this.$store.dispatch("attrStore/detailAttr", contentId);
+      this.$router.push("/detail");
     },
   },
 };

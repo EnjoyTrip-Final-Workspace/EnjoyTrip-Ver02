@@ -21,7 +21,7 @@
             <router-link :to="{ name: 'main' }" class="m-2 link"> 메인 </router-link>
             <router-link :to="{ name: 'attr' }" class="m-2 link"> 여행지 </router-link>
             <router-link :to="{ name: 'board' }" class="m-2 link"> 게시판 </router-link>
-            <router-link :to="{ name: 'todo' }" class="m-2 link"> TodoList </router-link>
+            <!-- <router-link :to="{ name: 'todo' }" class="m-2 link"> TodoList </router-link> -->
           </b-nav-item>
         </b-navbar-nav>
 
@@ -33,7 +33,7 @@
           </b-nav-item>
           <b-nav-item class="align-self-center">
             <router-link :to="{ name: 'mypage' }" class="link align-self-center"
-              >내정보보기</router-link
+              >마이페이지</router-link
             >
           </b-nav-item>
           <b-nav-item class="align-self-center link" @click.prevent="onClickLogout"

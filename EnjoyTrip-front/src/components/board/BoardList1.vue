@@ -24,7 +24,11 @@
           </b-thead>
           <tbody>
             <!-- 하위 component인 BoardListItem에 데이터 전달(props) -->
-            <board-list-item v-for="article in articles" :key="article.articleno" v-bind="article" />
+            <board-list-item
+              v-for="article in articles"
+              :key="article.articleno"
+              v-bind="article"
+            />
           </tbody>
         </b-table-simple>
       </b-col>
