@@ -150,7 +150,64 @@
     </div>
   </div>
 </template>
+<!-- 
+<template>
+  <div class="container-fluid">
+    <div class="row justify-content-center align-items-center">
+      <div class="grid-container">
+        <div class="grid-cell" v-for="attraction in randomAttractions" :key="attraction.id">
+          <b-card
+            :title="attraction.title"
+            :img-src="attraction.img"
+            img-alt="이미지"
+            img-top
+            tag="article"
+            style="max-width: 20rem;"
+            class="mb-2"
+          >
+            <b-card-text>
+              {{ attraction.overview }}
+            </b-card-text>
+            <b-button href="#" variant="primary">방문하기</b-button>
+          </b-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 
+<script>
+import attrStore from '@/store/modules/attrStore';
+import { mapState, mapActions } from 'vuex';
+
+export default {
+  name: 'MainCardGroup',
+  computed: {
+    ...mapState(attrStore
+      // { randomAttractions: state => state.attrStore.randomAttractions}
+    ),
+  },
+  mounted() {
+    this.getRandomAttractions();
+  },
+  methods: {
+    ...mapActions(attrStore, ["getRandomAttractions"]),
+    // 비어있는 이미지 처리
+    replaceImg(e) {
+      e.target.src = require(`@/assets/close.png`);
+    },
+    showDetailPage(contentId) {
+      console.log(contentId);
+      this.$store.dispatch('attrStore/detailAttr', contentId);
+      this.$router.push('/detail')
+    },
+  },
+};
+</script>
+
+
+
+-->
 <style>
 .grid-container {
   display: grid;
@@ -173,4 +230,4 @@
     grid-template-columns: repeat(1, 1fr);
   }
 }
-</style>
+</style> 
