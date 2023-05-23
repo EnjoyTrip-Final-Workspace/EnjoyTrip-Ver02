@@ -5,8 +5,8 @@ Vuex 스토어 모듈을 정의하고 있습니다.
 해당 목록을 비동기적으로 가져오는 액션과 목록을 업데이트하는 뮤테이션을 포함합니다.
 */
 
-// import { getSidoList, getGugunList, detail, searchByKeyword, searchByParams, getRandomAttractions } from "@/api/Attraction.js";
-import { getSidoList, getGugunList, detail, searchByKeyword, searchByParams} from "@/api/Attraction.js";
+import { getSidoList, getGugunList, detail, searchByKeyword, searchByParams, getRandomAttractions } from "@/api/Attraction.js";
+// import { getSidoList, getGugunList, detail, searchByKeyword, searchByParams} from "@/api/Attraction.js";
 
 // ... (이하 코드 생략)
 /*
@@ -26,7 +26,7 @@ const attrStore = {
       addr: '',
       overview: ''
     },
-    // randomAttractions: [] // 랜덤 여행지 데이터를 저장할 배열
+    randomAttractions: [] // 랜덤 여행지 데이터를 저장할 배열
   },
   getters: {},
   mutations: {
@@ -119,18 +119,18 @@ const attrStore = {
       );
     },
     
-    // getRandomAttractions: ({ commit }) => {
-    //   getRandomAttractions(
-    //     (response) => {
-    //       const randomAttractions = response.data;
-    //       commit("SET_RANDOM_ATTRACTIONS", randomAttractions);
-    //       console.log(randomAttractions);
-    //     },
-    //     (error) => {
-    //       console.log(error);
-    //     }
-    //   );
-    // },
+    getRandomAttractions: ({ commit }) => {
+      getRandomAttractions(
+        (response) => {
+          const randomAttractions = response.data;
+          commit("SET_RANDOM_ATTRACTIONS", randomAttractions);
+          console.log(randomAttractions);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    },
   },
 };
 

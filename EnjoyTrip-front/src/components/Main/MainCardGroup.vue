@@ -2,159 +2,6 @@
   <div class="container-fluid">
     <div class="row justify-content-center align-items-center">
       <div class="grid-container">
-        <div class="grid-cell">
-          <b-card
-            title="Card Title"
-            img-src="https://picsum.photos/600/300/?image=25"
-            img-alt="Image"
-            img-top
-            tag="article"
-            style="max-width: 20rem;"
-            class="mb-2"
-          >
-            <b-card-text>
-              Some quick example text to build on the card title and make up the bulk of the card's content.
-            </b-card-text>
-            <b-button href="#" variant="primary">Go somewhere</b-button>
-          </b-card>
-        </div>
-        <div class="grid-cell">
-          <b-card
-            title="Card Title"
-            img-src="https://picsum.photos/600/300/?image=26"
-            img-alt="Image"
-            img-top
-            tag="article"
-            style="max-width: 20rem;"
-            class="mb-2"
-          >
-            <b-card-text>
-              Some quick example text to build on the card title and make up the bulk of the card's content.
-            </b-card-text>
-            <b-button href="#" variant="primary">Go somewhere</b-button>
-          </b-card>
-        </div>
-        <div class="grid-cell">
-          <b-card
-            title="Card Title"
-            img-src="https://picsum.photos/600/300/?image=27"
-            img-alt="Image"
-            img-top
-            tag="article"
-            style="max-width: 20rem;"
-            class="mb-2"
-          >
-            <b-card-text>
-              Some quick example text to build on the card title and make up the bulk of the card's content.
-            </b-card-text>
-            <b-button href="#" variant="primary">Go somewhere</b-button>
-          </b-card>
-        </div>
-        <div class="grid-cell">
-          <b-card
-            title="Card Title"
-            img-src="https://picsum.photos/600/300/?image=28"
-            img-alt="Image"
-            img-top
-            tag="article"
-            style="max-width: 20rem;"
-            class="mb-2 d-none d-md-block"
-          >
-            <b-card-text>
-              Some quick example text to build on the card title and make up the bulk of the card's content.
-            </b-card-text>
-            <b-button href="#" variant="primary">Go somewhere</b-button>
-          </b-card>
-        </div>
-        <div class="grid-cell">
-          <b-card
-            title="Card Title"
-            img-src="https://picsum.photos/600/300/?image=29"
-            img-alt="Image"
-            img-top
-            tag="article"
-            style="max-width: 20rem;"
-            class="mb-2 d-none d-md-block"
-          >
-            <b-card-text>
-              Some quick example text to build on the card title and make up the bulk of the card's content.
-            </b-card-text>
-            <b-button href="#" variant="primary">Go somewhere</b-button>
-          </b-card>
-        </div>
-        <div class="grid-cell">
-          <b-card
-            title="Card Title"
-            img-src="https://picsum.photos/600/300/?image=30"
-            img-alt="Image"
-            img-top
-            tag="article"
-            style="max-width: 20rem;"
-            class="mb-2 d-none d-md-block"
-          >
-            <b-card-text>
-              Some quick example text to build on the card title and make up the bulk of the card's content.
-            </b-card-text>
-            <b-button href="#" variant="primary">Go somewhere</b-button>
-          </b-card>
-        </div>
-        <div class="grid-cell">
-          <b-card
-            title="Card Title"
-            img-src="https://picsum.photos/600/300/?image=31"
-            img-alt="Image"
-            img-top
-            tag="article"
-            style="max-width: 20rem;"
-            class="mb-2 d-none d-md-block"
-          >
-            <b-card-text>
-              Some quick example text to build on the card title and make up the bulk of the card's content.
-            </b-card-text>
-            <b-button href="#" variant="primary">Go somewhere</b-button>
-          </b-card>
-        </div>
-        <div class="grid-cell">
-          <b-card
-            title="Card Title"
-            img-src="https://picsum.photos/600/300/?image=32"
-            img-alt="Image"
-            img-top
-            tag="article"
-            style="max-width: 20rem;"
-            class="mb-2 d-none d-md-block"
-          >
-            <b-card-text>
-              Some quick example text to build on the card title and make up the bulk of the card's content.
-            </b-card-text>
-            <b-button href="#" variant="primary">Go somewhere</b-button>
-          </b-card>
-        </div>
-        <div class="grid-cell">
-          <b-card
-            title="Card Title"
-            img-src="https://picsum.photos/600/300/?image=33"
-            img-alt="Image"
-            img-top
-            tag="article"
-            style="max-width: 20rem;"
-            class="mb-2 d-none d-md-block"
-          >
-            <b-card-text>
-              Some quick example text to build on the card title and make up the bulk of the card's content.
-            </b-card-text>
-            <b-button href="#" variant="primary">Go somewhere</b-button>
-          </b-card>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-<!-- 
-<template>
-  <div class="container-fluid">
-    <div class="row justify-content-center align-items-center">
-      <div class="grid-container">
         <div class="grid-cell" v-for="attraction in randomAttractions" :key="attraction.id">
           <b-card
             :title="attraction.title"
@@ -177,14 +24,13 @@
 </template>
 
 <script>
-import attrStore from '@/store/modules/attrStore';
 import { mapState, mapActions } from 'vuex';
-
+// 여기서 const로 가져오든 해야한다.
+const attrStore = 'attrStore';
 export default {
   name: 'MainCardGroup',
   computed: {
-    ...mapState(attrStore
-      // { randomAttractions: state => state.attrStore.randomAttractions}
+    ...mapState(attrStore, ['randomAttractions']
     ),
   },
   mounted() {
@@ -206,8 +52,6 @@ export default {
 </script>
 
 
-
--->
 <style>
 .grid-container {
   display: grid;
@@ -231,3 +75,5 @@ export default {
   }
 }
 </style> 
+
+여기서 카드 안의 텍스트가 너무 길어지면 카드 내 스크롤러 만들어줘
