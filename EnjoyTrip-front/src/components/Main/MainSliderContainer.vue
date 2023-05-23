@@ -65,10 +65,10 @@
         </template>
       </b-carousel-slide>
     </b-carousel>
-    <p class="mt-4">
+    <!-- <p class="mt-4">
       Slide #: {{ slide + 1 }}<br />
       Sliding: {{ sliding }}
-    </p>
+    </p> -->
   </div>
 </template>
 <style>

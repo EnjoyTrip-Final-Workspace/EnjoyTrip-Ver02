@@ -1,11 +1,7 @@
  
 <template>
    <b-container class="bv-example-row mt-3">
-    <b-row>
-      <b-col>
-        <b-alert variant="secondary" show><h3>회원가입</h3></b-alert>
-      </b-col>
-    </b-row>
+    <h1>회원 가입</h1>
     <b-row>
       <b-col></b-col>
       <b-col cols="8">
@@ -101,4 +97,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+
+</style>

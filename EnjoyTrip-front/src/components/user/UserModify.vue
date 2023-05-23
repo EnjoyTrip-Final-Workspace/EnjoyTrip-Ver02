@@ -3,7 +3,8 @@
    <b-container class="bv-example-row mt-3">
     <b-row>
       <b-col>
-        <b-alert variant="secondary" show><h3>회원정보 수정</h3></b-alert>
+        <h1 class="display-modify">회원정보 수정</h1>
+        <!-- <b-alert variant="secondary" show><h3></h3></b-alert> -->
       </b-col>
     </b-row>
     <b-row>
@@ -45,7 +46,7 @@
                 placeholder="이메일 입력...."
               ></b-form-input>
             </b-form-group>
-            <b-button type="button" variant="success" class="m-1" @click="update">수정</b-button>
+            <b-button type="button" variant="outline-primary" class="m-1" @click="update">수정</b-button>
           </b-form>
         </b-card>
       </b-col>
@@ -96,4 +97,16 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+
+.m-1:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+h1.display-modify {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color :#007bff;
+}
+</style>

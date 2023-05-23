@@ -1,6 +1,6 @@
 <template>
   <b-container class="bv-example-row mt-3 text-center">
-    <h3 class="underline-orange">
+    <h3>
       <b-icon icon="compass-fill" class="icon"></b-icon>
       여행지 검색
     </h3>
@@ -37,15 +37,6 @@ export default {
   font-size: 2rem;
   margin-right: 0.5rem;
   color: #007bff;
-}
-
-.underline-orange {
-  display: inline-block;
-  font-size: 1.8rem;
-  font-weight: bold;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid #007bff;
-  margin-bottom: 2rem;
 }
 
 .bv-example-row {

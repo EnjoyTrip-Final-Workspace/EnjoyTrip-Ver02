@@ -1,7 +1,13 @@
 <template>
   <div>
     <!-- 이미지 로딩 전에 렌더링되는지 확인 -->
-    <img v-if="attractions.img" :src="attractions.img" @error="replaceImg" class="attractions-img" alt="Attraction Image" />
+    <img
+      v-if="attractions.img"
+      :src="attractions.img"
+      @error="replaceImg"
+      class="attractions-img"
+      alt="Attraction Image"
+    />
     <!-- 관광지 명 -->
     <h1 class="attractions-title">{{ attractions.title }}</h1>
     <!-- 관광지 주소 -->
@@ -31,8 +37,9 @@ export default {
 </script>
 <style>
 .attractions-img {
-  width: 100%;
+  width: 60%;
   height: auto;
+  padding-top: 40px;
 }
 
 .attractions-title {
@@ -52,4 +59,3 @@ export default {
   margin-top: 20px;
 }
 </style>
-

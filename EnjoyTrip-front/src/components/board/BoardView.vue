@@ -1,10 +1,5 @@
 <template>
   <b-container class="bv-example-row mt-3">
-    <b-row>
-      <b-col>
-        <b-alert show><h3>글보기</h3></b-alert>
-      </b-col>
-    </b-row>
     <b-row class="mb-1">
       <b-col class="text-left">
         <b-button variant="outline-primary" @click="moveList">목록</b-button>
@@ -93,4 +88,7 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+
+</style>
