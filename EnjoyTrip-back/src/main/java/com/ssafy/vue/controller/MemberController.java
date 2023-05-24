@@ -1,6 +1,7 @@
 package com.ssafy.vue.controller;
 
 import java.util.HashMap;
+
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,6 +38,7 @@ public class MemberController {
     private static final String FAIL = "fail";
 
     @Autowired
+    
     private JwtServiceImpl jwtService;
 
     @Autowired

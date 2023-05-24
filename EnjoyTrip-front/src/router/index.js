@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import AppMain from "@/views/AppMain";
 import AppAttractionList from "@/views/AppAttractionList";
 import AppAttractionDetail from "@/views/AppAttractionDetail";
+import AppPlan from "@/views/AppPlan";
 
 import store from "@/store";
 // import { component } from "vue/types/umd";
@@ -50,6 +51,11 @@ const routes = [
     path: "/detail",
     name: "detail",
     component: AppAttractionDetail,
+  },
+  {
+    path: "/plan",
+    name: "plan",
+    component: AppPlan,
   },
   {
     path: "/user",

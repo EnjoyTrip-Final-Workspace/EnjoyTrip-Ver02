@@ -20,7 +20,7 @@
                 <p class="card-text custom-card-address">{{ attraction.addr }}</p>
               </div>
               <div>
-                <button class="btn btn-primary" @click="showDetailPage(attraction.contentId)">
+                <button class="btn btn-primary" @click="handleButtonClick(attraction.contentId)">
                   상세 페이지 보기
                 </button>
               </div>
@@ -47,12 +47,19 @@ export default {
     replaceImg(e) {
       e.target.src = require(`@/assets/close.png`);
     },
+    handleButtonClick(contentId) {
+      this.addAttraction(contentId);
+      this.showDetailPage(contentId);
+    },
+    addAttraction(contentId) {
+      this.$store.dispatch("attrStore/addSelectedAttraction", contentId);
+    },
     showDetailPage(contentId) {
       console.log(contentId);
       this.$store.dispatch("attrStore/detailAttr", contentId);
       this.$router.push("/detail");
     },
-  },
+  }
 };
 </script>
 
