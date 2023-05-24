@@ -33,13 +33,24 @@
             {{ userInfo.username }}({{ userInfo.userid }})님 환영합니다.
           </b-nav-item>
           <b-nav-item class="align-self-center">
-            <router-link :to="{ name: 'mypage' }" class="link align-self-center"
-              >마이페이지</router-link
-            >
+            <b-dropdown id="dropdown-right" right text="마이페이지" variant="primary" class="m-2">
+              <b-dropdown-item>
+                <router-link :to="{ name: 'mypage' }" class="link align-self-center">
+                  회원정보
+                </router-link>
+              </b-dropdown-item>
+              <b-dropdown-item>
+                <router-link :to="{ name: 'mypage' }" class="link align-self-center">
+                  내 여행지
+                  <b-badge variant="primary" pill>14</b-badge>
+                </router-link>
+              </b-dropdown-item>
+            </b-dropdown>
+           
           </b-nav-item>
-          <b-nav-item class="align-self-center link" @click.prevent="onClickLogout"
-            >로그아웃</b-nav-item
-          >
+          <b-nav-item class="align-self-center link" @click.prevent="onClickLogout">
+            로그아웃
+          </b-nav-item>
         </b-navbar-nav>
         <!-- before login -->
         <b-navbar-nav class="ml-auto" v-else>
