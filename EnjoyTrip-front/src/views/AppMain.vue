@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import MainCardGroup from "@/components/Main/MainCardGroup";
-import MainSelectContainer from "@/components/Main/MainSelectContainer";
-import MainSliderContainer from "@/components/Main/MainSliderContainer";
-import MainLoadMoreCard from "@/components/Main/MainLoadMoreCard.vue";
+import MainCardGroup from "@/components/main/MainCardGroup";
+import MainSelectContainer from "@/components/main/MainSelectContainer";
+import MainSliderContainer from "@/components/main/MainSliderContainer";
+import MainLoadMoreCard from "@/components/main/MainLoadMoreCard";
 
 export default {
   name: "AppMain",

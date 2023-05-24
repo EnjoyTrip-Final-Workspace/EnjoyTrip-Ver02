@@ -32,6 +32,8 @@ export default {
       type: 0,
       keyword: "",
     };
+
+    
   },
   computed: {
     ...mapState(attrStore, ["sidos", "guguns", "attractions"]),

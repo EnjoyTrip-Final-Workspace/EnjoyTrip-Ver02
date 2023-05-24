@@ -5,7 +5,14 @@
 // 해당 목록을 비동기적으로 가져오는 액션과 목록을 업데이트하는 뮤테이션을 포함합니다.
 // */
 
-import { getSidoList, getGugunList, detail, searchByKeyword, searchByParams, getRandomAttractions } from "@/api/Attraction.js";
+import {
+  getSidoList,
+  getGugunList,
+  detail,
+  searchByKeyword,
+  searchByParams,
+  getRandomAttractions,
+} from "@/api/Attraction.js";
 
 const attrStore = {
   namespaced: true,
@@ -13,10 +20,10 @@ const attrStore = {
     sidos: [{ value: null, text: "선택하세요" }],
     guguns: [{ value: null, text: "선택하세요" }],
     attractions: {
-      img: '',
-      title: '',
-      addr: '',
-      overview: ''
+      img: "",
+      title: "",
+      addr: "",
+      overview: "",
     },
     randomAttractions: [], // 랜덤 여행지 데이터를 저장할 배열
   },
@@ -48,12 +55,9 @@ const attrStore = {
     SET_RANDOM_ATTRACTIONS(state, attractions) {
       state.randomAttractions = attractions;
     },
-    // ADD_RANDOM_ATTRACTIONS(state, attractions) {
-    //   state.randomAttractions.push(...attractions);
-    // },
     ADD_RANDOM_ATTRACTIONS(state, attractions) {
       state.randomAttractions = state.randomAttractions.concat(attractions);
-    }
+    },
   },
   actions: {
     getSido: ({ commit }) => {
@@ -107,7 +111,7 @@ const attrStore = {
         (response) => {
           const attractions = response.data;
           commit("SET_ATTRACTIONS", attractions);
-          console.log(attractions)
+          console.log(attractions);
         },
         (error) => {
           console.log(error);
@@ -152,5 +156,3 @@ const attrStore = {
 };
 
 export default attrStore;
-
-
