@@ -3,8 +3,33 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ssafy.vue.model.mapper.PlanMapper">
+    <resultMap id="attrResultMap" type="Attraction">
+        <result column="content_id" property="contentId"/>
+        <result column="title" property="title"/>
+        <result column="addr1" property="addr"/>
+        <result column="first_image" property="img"/>
+        <result column="overview" property="overview"/>
+        <result column="latitude" property="latitude"/>
+        <result column="longitude" property="longitude"/>
+    </resultMap>
     <insert id="addPlan" parameterType="plan">
         insert into my_plan(userid, content_id)
         values (#{userid}, #{content_id});
     </insert>
-</mapper> 
+
+    <delete id="deletePlan" parameterType="plan">
+        delete from my_plan
+        where userid = #{userid} and content_id = #{content_id}
+    </delete>
+
+    <select id="getPlan" parameterType="string" resultMap="attrResultMap">
+        SELECT *
+        FROM attraction_info a
+        JOIN my_plan m ON a.content_id = m.content_id
+        <where>
+            <if test="userid != null and userid != ''">
+                AND m.userid = #{userid}
+            </if>
+        </where>
+    </select>
+</mapper>
