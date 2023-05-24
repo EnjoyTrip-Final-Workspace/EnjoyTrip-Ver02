@@ -37,13 +37,14 @@ export default {
     replaceImg(e) {
       e.target.src = require(`@/assets/close.png`);
     },
-    removeMyAttr(attraction) {
-      this.$store.dispatch("planStore/removeSelectedAttraction", attraction.contentId);
+    removeMyAttr(contentId) {
+      this.$store.dispatch("planStore/removeSelectedAttraction", contentId);
     },
     saveMyAttr() {
+      // console.log(this.userInfo)
   const attractionsToSave = this.selectedAttractions.map((attraction) => ({
-    userId: this.userInfo.userid,
-    contentId: attraction.contentId,
+    userid: this.userInfo.userid,
+    content_id: attraction.content_id,
   }));
 
   axios.post("http://localhost:9999/vue/plan/myplan", attractionsToSave)
