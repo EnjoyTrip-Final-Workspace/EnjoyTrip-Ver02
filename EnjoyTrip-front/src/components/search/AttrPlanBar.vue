@@ -41,12 +41,13 @@ export default {
       this.$store.dispatch("planStore/removeSelectedAttraction", contentId);
     },
     saveMyAttr() {
-      // console.log(this.userInfo)
-  const attractionsToSave = this.selectedAttractions.map((attraction) => ({
+      // console.log(this.selectedAttractions)
+  const attractionsToSave = this.selectedAttractions.map((selectedAttractions) => ({
     userid: this.userInfo.userid,
-    content_id: attraction.content_id,
+    content_id: selectedAttractions.contentId
   }));
 
+  console.log(attractionsToSave)
   axios.post("http://localhost:9999/vue/plan/myplan", attractionsToSave)
   .then((response) => {
     console.log(response);
