@@ -27,4 +27,3 @@ function getRandomAttractions(success, fail) {
 }
 
 export { getSidoList, getGugunList, detail, searchByKeyword, searchByParams, getRandomAttractions };
-
