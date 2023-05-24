@@ -1,79 +1,58 @@
 <template>
   <div class="container-fluid">
     <div class="row justify-content-center align-items-center">
-      <div class="grid-container">
-        <div class="grid-cell" v-for="attraction in randomAttractions" :key="attraction.id">
+      <div class="col-lg-8">
+        <b-card-group columns>
           <b-card
+            v-for="attraction in attractions"
+            :key="attraction.id"
             :title="attraction.title"
-            :img-src="attraction.img"
-            img-alt="이미지"
-            img-top
-            tag="article"
-            style="max-width: 20rem;"
-            class="mb-2"
+            class="mb-4"
+            @click="showDetailPage(attraction.contentId)"
           >
+            <img
+              v-if="attraction.img"
+              :src="attraction.img"
+              :alt="attraction.title"
+              class="card-img"
+              
+            />
             <b-card-text>
-              {{ attraction.overview }}
+              {{ attraction.addr }}
             </b-card-text>
-            <b-button href="#" variant="primary">방문하기</b-button>
           </b-card>
-        </div>
+        </b-card-group>
       </div>
     </div>
   </div>
 </template>
 
+<style>
+.card-img {
+  width: 100%;
+  height: auto;
+}
+</style>
+
 <script>
-import { mapState, mapActions } from 'vuex';
-// 여기서 const로 가져오든 해야한다.
-const attrStore = 'attrStore';
 export default {
   name: 'MainCardGroup',
   computed: {
-    ...mapState(attrStore, ['randomAttractions']
-    ),
-  },
-  mounted() {
-    this.getRandomAttractions();
+    // randomAttractions을 가져와서 attractions에 할당
+    attractions() {
+      return this.$store.state.attrStore.randomAttractions;
+    },
   },
   methods: {
-    ...mapActions(attrStore, ["getRandomAttractions"]),
-    // 비어있는 이미지 처리
-    replaceImg(e) {
-      e.target.src = require(`@/assets/close.png`);
-    },
     showDetailPage(contentId) {
       console.log(contentId);
-      this.$store.dispatch('attrStore/detailAttr', contentId);
-      this.$router.push('/detail')
+      this.$store.dispatch("attrStore/detailAttr", contentId);
+      this.$router.push("/detail");
     },
+  },
+  mounted() {
+    // 페이지 로드 시 초기 랜덤 여행지 9개를 가져오는 액션 호출
+    this.$store.dispatch('attrStore/getRandomAttractions');
   },
 };
 </script>
-
-
-<style>
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 3fr);
-  grid-gap: 1rem;
-}
-
-.grid-cell {
-  max-width: 20rem;
-}
-
-@media (max-width: 991px) {
-  .grid-container {
-    grid-template-columns: repeat(2, 2fr);
-  }
-}
-
-@media (max-width: 576px) {
-  .grid-container {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
-</style> 
-
-여기서 카드 안의 텍스트가 너무 길어지면 카드 내 스크롤러 만들어줘
