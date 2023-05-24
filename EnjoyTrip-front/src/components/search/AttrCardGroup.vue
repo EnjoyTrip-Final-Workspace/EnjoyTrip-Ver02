@@ -23,6 +23,9 @@
                 <button class="btn btn-primary" @click="handleButtonClick(attraction.contentId)">
                   상세 페이지 보기
                 </button>
+                <button class="btn btn-primary" @click="addmyPlan(attraction)">
+                  담기
+                </button>
               </div>
             </div>
           </div>
@@ -36,11 +39,13 @@
 import { mapState } from "vuex";
 
 const attrStore = "attrStore";
+const planStore = "planStore"
 
 export default {
   name: "AttrCardGroup",
   computed: {
     ...mapState(attrStore, ["attractions"]),
+    ...mapState(planStore, ["selectedAttractions"]),
   },
   methods: {
     // 비어있는 이미지 처리
@@ -48,11 +53,11 @@ export default {
       e.target.src = require(`@/assets/close.png`);
     },
     handleButtonClick(contentId) {
-      this.addAttraction(contentId);
       this.showDetailPage(contentId);
     },
-    addAttraction(contentId) {
-      this.$store.dispatch("attrStore/addSelectedAttraction", contentId);
+
+    addmyPlan(contentId) {
+      this.$store.dispatch("planStore/addSelectedAttraction", contentId);
     },
     showDetailPage(contentId) {
       console.log(contentId);
