@@ -56,8 +56,8 @@ export default {
       this.showDetailPage(contentId);
     },
 
-    addmyPlan(contentId) {
-      this.$store.dispatch("planStore/addSelectedAttraction", contentId);
+    addmyPlan(attraction) {
+      this.$store.dispatch("planStore/addSelectedAttraction", attraction);
     },
     showDetailPage(contentId) {
       console.log(contentId);
