@@ -19,4 +19,8 @@ public interface PlanMapper {
 
     public List<Attraction> getPlan(String userid) throws SQLException;
 
+	public int countByUserIdAndContentId(String userid, int content_id);
+
+	public int countByUserIdAndContentId(Plan plan);
+
 }

@@ -54,6 +54,20 @@ public class PlanServiceImpl implements PlanService{
 		return planMapper.getPlan(userid);
 	}
 
+	// 데이터중복체크
+	@Override
+	public boolean checkDuplicate(String userid, int content_id) {
+		 // 중복 체크를 위해 데이터베이스에 쿼리를 실행하여 결과를 반환하는 로직을 구현
+
+		Plan plan = new Plan();
+		plan.setUserid(userid);
+		plan.setContent_id(content_id);
+	    // 예시: 데이터베이스에서 해당 userid와 content_id를 가진 데이터가 이미 존재하는지 확인하는 쿼리를 실행
+	    int count = planMapper.countByUserIdAndContentId(plan);
+
+	    return count > 0; // 결과가 0보다 크면 중복 데이터가 존재
+	}
+
 //	@Override
 //	public Attraction getPlan(String userid) throws Exception {
 //		return (Attraction) planMapper.getPlan(userid);

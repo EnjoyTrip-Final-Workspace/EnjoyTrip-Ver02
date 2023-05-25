@@ -15,8 +15,8 @@
     <insert id="addPlan" parameterType="plan">
         insert into my_plan(userid, content_id)
         values (#{userid}, #{content_id});
-    </insert>
-
+    </insert> 
+    
     <delete id="deletePlan" parameterType="plan">
         delete from my_plan
         where userid = #{userid} and content_id = #{content_id}
@@ -32,4 +32,9 @@
             </if>
         </where>
     </select>
+    
+    <!-- 중복 체크를 위한 쿼리 -->
+	<select id="countByUserIdAndContentId" parameterType="plan" resultType="integer">
+	  SELECT COUNT(*) FROM my_plan WHERE userid = #{userid} AND content_id = #{content_id}
+	</select>
 </mapper>

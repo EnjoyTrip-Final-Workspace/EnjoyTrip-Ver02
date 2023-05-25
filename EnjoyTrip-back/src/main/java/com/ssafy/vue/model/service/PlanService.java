@@ -12,4 +12,7 @@ public interface PlanService {
 
     public List<Attraction> getPlan(String userid) throws Exception;
 
+    // 중복체크 추가
+	public boolean checkDuplicate(String userid, int content_id);
+
 }

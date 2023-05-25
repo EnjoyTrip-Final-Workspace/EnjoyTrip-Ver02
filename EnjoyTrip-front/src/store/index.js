@@ -5,7 +5,6 @@ import createPersistedState from "vuex-persistedstate";
 // module import
 import boardStore from "@/store/modules/boardStore";
 import memberStore from "@/store/modules/memberStore";
-import todoStore from "@/store/modules/todoStore";
 import attrStore from "@/store/modules/attrStore";
 import planStore from "@/store/modules/planStore";
 
@@ -16,7 +15,6 @@ export default new Vuex.Store({
   modules: {
     boardStore,
     memberStore,
-    todoStore,
     attrStore,
     planStore
   },

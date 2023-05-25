@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- 이미지 로딩 전에 렌더링되는지 확인 -->
     <img
       v-if="attractions.img"
       :src="attractions.img"

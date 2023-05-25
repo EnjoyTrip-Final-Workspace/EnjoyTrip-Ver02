@@ -28,7 +28,8 @@ export default {
     } else {
       const script = document.createElement("script");
       script.onload = this.loadKakaoMaps;
-      script.src = "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=" + process.env.VUE_APP_KAKAOMAP_KEY;
+      script.src =
+        "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=" + process.env.VUE_APP_KAKAOMAP_KEY;
 
       document.head.appendChild(script);
     }
@@ -36,7 +37,7 @@ export default {
   watch: {
     attractions: {
       handler() {
-        if (this.kakaoLoaded) {
+        if (this.attractions && this.kakaoLoaded) {
           this.initMap();
         }
       },
@@ -47,11 +48,13 @@ export default {
     loadKakaoMaps() {
       window.kakao.maps.load(() => {
         this.kakaoLoaded = true;
-        this.initMap();
+        if (this.attractions) {
+          this.initMap();
+        }
       });
     },
     initMap() {
-      if (!this.kakaoLoaded || !this.attractions.latitude || !this.attractions.longitude) {
+      if (!this.attractions || !this.kakaoLoaded || !this.attractions.latitude || !this.attractions.longitude) {
         return;
       }
 

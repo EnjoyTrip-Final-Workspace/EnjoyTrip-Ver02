@@ -15,17 +15,13 @@
                   @error="replaceImg"
                   alt="Attraction Image"
                   class="card-img-top custom-card-img"
+                  @click="showDetailPage(attraction.contentId)"
                 />
                 <h5 class="card-title custom-card-title">{{ attraction.title }}</h5>
                 <p class="card-text custom-card-address">{{ attraction.addr }}</p>
               </div>
-              <div>
-                <button class="btn btn-primary" @click="handleButtonClick(attraction.contentId)">
-                  상세 페이지 보기
-                </button>
-                <button class="btn btn-primary" @click="addmyPlan(attraction)">
-                  담기
-                </button>
+              <div class="d-flex align-items-center justify-content-end">
+                  <b-icon class="b-icon" icon="plus-square"  @click="addmyPlan(attraction)"></b-icon>
               </div>
             </div>
           </div>
@@ -39,7 +35,7 @@
 import { mapState } from "vuex";
 
 const attrStore = "attrStore";
-const planStore = "planStore"
+const planStore = "planStore";
 
 export default {
   name: "AttrCardGroup",
@@ -52,9 +48,6 @@ export default {
     replaceImg(e) {
       e.target.src = require(`@/assets/close.png`);
     },
-    handleButtonClick(contentId) {
-      this.showDetailPage(contentId);
-    },
 
     addmyPlan(attraction) {
       this.$store.dispatch("planStore/addSelectedAttraction", attraction);
@@ -64,11 +57,23 @@ export default {
       this.$store.dispatch("attrStore/detailAttr", contentId);
       this.$router.push("/detail");
     },
-  }
+  },
 };
 </script>
 
 <style>
+.b-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.b-icon:hover {
+  transform: scale(1.2);
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;

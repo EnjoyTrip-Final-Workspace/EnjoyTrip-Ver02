@@ -21,6 +21,7 @@
             <router-link :to="{ name: 'main' }" class="m-2 link"> 메인 </router-link>
             <router-link :to="{ name: 'attr' }" class="m-2 link"> 여행지 </router-link>
             <router-link :to="{ name: 'board' }" class="m-2 link"> 게시판 </router-link>
+
           </b-nav-item>
         </b-navbar-nav>
 
@@ -44,7 +45,6 @@
                 </router-link>
               </b-dropdown-item>
             </b-dropdown>
-           
           </b-nav-item>
           <b-nav-item class="align-self-center link" @click.prevent="onClickLogout">
             로그아웃

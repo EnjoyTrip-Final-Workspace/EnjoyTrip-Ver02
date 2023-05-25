@@ -1,14 +1,31 @@
 
+
 <template>
-  <b-button variant="secondary" @click="loadMore">더보기</b-button>
+  <div class="container">
+    <!-- 내용 -->
+  </div>
 </template>
 
 <script>
 export default {
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
   methods: {
+    handleScroll() {
+      const windowHeight = window.innerHeight;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      if (scrollTop + windowHeight >= documentHeight) {
+        this.loadMore();
+      }
+    },
     loadMore() {
-      // 더보기 버튼 클릭 시, 새로운 랜덤 여행지 9개를 조회하는 액션을 호출
-      this.$store.dispatch('attrStore/getMoreRandomAttractions');
+      this.$store.dispatch("attrStore/getMoreRandomAttractions");
     },
   },
 };

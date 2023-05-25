@@ -1,7 +1,7 @@
 <template>
   <b-container class="bv-example-row mt-3 text-center">
     <h3>
-      <b-icon icon="chat-dots" class="icon"></b-icon>
+      <!-- <b-icon icon="chat-dots" class="icon"></b-icon> -->
        자유 게시판
     </h3>
     <router-view></router-view>
