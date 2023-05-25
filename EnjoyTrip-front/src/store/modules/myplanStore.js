@@ -31,19 +31,20 @@ const myplanStore = {
         }
       )
     },
-    deleteMyAttraction({ commit }, userid, contentId) {
-      console.log(contentId)
+    deleteMyAttraction({ commit }, payload) {
+      const { userid, contentId } = payload;
+    
       deleteMyAttraction(
-        userid, contentId,
+        userid,
+        contentId,
         (response) => {
           console.log(response);
-          // const myattractions = response.data;
           commit("DELETE_MY_ATTRACTION", userid, contentId);
         },
         (error) => {
           console.log(error);
         }
-      )
+      );
     },
   },
 };

@@ -58,12 +58,12 @@
             </template>
             <b-dropdown-item href="#">
               <router-link :to="{ name: 'join' }" class="link">
-                <b-icon icon="person-circle"></b-icon> 회원가입
+                회원가입
               </router-link>
             </b-dropdown-item>
             <b-dropdown-item href="#">
               <router-link :to="{ name: 'login' }" class="link">
-                <b-icon icon="key"></b-icon> 로그인
+                로그인
               </router-link>
             </b-dropdown-item>
           </b-nav-item-dropdown>

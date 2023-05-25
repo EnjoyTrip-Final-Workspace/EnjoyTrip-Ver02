@@ -20,7 +20,6 @@
           <div class="flex-grow-1">
             <div class="d-flex justify-content-between mb-3">
               <h5 class="mb-1">{{ attraction.title }}</h5>
-              {{ attraction.contentId }}
               <b-icon-x
                 size="2x"
                 @click="deleteListItem(attraction.contentId)"
@@ -57,16 +56,11 @@ export default {
   },
   methods: {
     deleteListItem(contentId) {
-      console.log(contentId)
-      this.$store.dispatch(
-        "myplanStore/deleteMyAttraction",
-        this.userInfo.userid,
-        contentId
-      );
-      // this.$store.dispatch("myplanStore/deleteMyAttraction", {
-      //   userid: this.userInfo.userid,
-      //   content_id: contentId,
-      // });
+      // console.log(contentId)
+      this.$store.dispatch("myplanStore/deleteMyAttraction", {
+      userid: this.userInfo.userid, 
+      contentId: contentId
+    });
     },
     // 비어있는 이미지 처리
     replaceImg(e) {
