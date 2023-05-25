@@ -8,71 +8,56 @@
       controls
       indicators
       background="#ababab"
+      img-width="1024"
+      img-height="480"
       style="text-shadow: 1px 1px 2px #333"
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"
     >
-      <!-- 첫번째 슬라이드
+      <!-- 첫번째 슬라이드 -->
       <b-carousel-slide
-        caption="First slide"
-        text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-        img-src="1.jpg"
-        ><template #img>
-          <img class="d-block img-fluid w-100" src="1.jpg" alt="First slide" />
-        </template>
-      </b-carousel-slide> -->
+  img-src="./1.jpg"
+  aspect-ratio="1024/480"
+>
+  <template #img>
+    <img
+      class="d-block img-fluid w-100"
+      src="./1.jpg"
+      alt="First slide"
+      style="height: 800px; object-fit: cover;"
+    />
+  </template>
+</b-carousel-slide>
 
-      <!-- 세번째 슬라이드 -->
+<!-- 두번째 슬라이드 -->
       <b-carousel-slide
-        caption="Third slide"
-        text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-        img-src="https://picsum.photos/1024/480/?image=58"
-      ></b-carousel-slide>
-
-      <!-- 네번째 슬라이드 -->
-      <b-carousel-slide
-        caption="Fourth slide"
-        text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-      >
-        <template #img>
-          <img
-            class="d-block img-fluid w-100"
-            src="https://picsum.photos/1024/480/?image=55"
-            alt="image slot"
-          />
-        </template>
-      </b-carousel-slide>
-
-      <!-- 다섯번째 슬라이드 -->
-      <b-carousel-slide
-        caption="Fifth slide"
-        text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-      >
-        <template #img>
-          <img
-            class="d-block img-fluid w-100"
-            src="https://picsum.photos/1024/480/?image=54"
-            alt="image slot"
-          />
-        </template>
-      </b-carousel-slide>
+  img-src="./2.jpg"
+  aspect-ratio="1024/480"
+>
+  <template #img>
+    <img
+      class="d-block img-fluid w-100"
+      src="./2.jpg"
+      alt="First slide"
+      style="height: 800px; object-fit: cover;"
+    />
+  </template>
+</b-carousel-slide>
     </b-carousel>
-    <!-- <p class="mt-4">
-      Slide #: {{ slide + 1 }}<br />
-      Sliding: {{ sliding }}
-    </p> -->
+
   </div>
 </template>
-
 <style>
 .slider-container {
-  position: relative;
-  height: 100vh; /* 높이를 브라우저 뷰포트 높이로 설정하거나 원하는 값으로 지정하세요 */
+   position: relative;
+  height: 0;
+  padding-bottom: 46.88%; /* (480 / 1024) * 100 */
+  overflow: hidden;
 }
 
 .select-container {
   position: absolute;
-  top: 40%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -176,10 +161,10 @@ export default {
         center: true,
         fluidGrow: true,
         blank: true,
-        blankColor: "#bbb",
+        blankColor: '#bbb',
         width: 600,
         height: 400,
-        class: "my-5",
+        class: 'my-5',
       },
       slide: 0,
       sliding: null,
@@ -202,7 +187,7 @@ export default {
 
     // 선택된 옵션 변경 시 textarea 높이 계산
     calculateTextAreaHeight() {
-      const selectedArea = document.querySelector(".select-container");
+      const selectedArea = document.querySelector('.select-container');
       if (selectedArea) {
         this.selectedAreaHeight = selectedArea.offsetHeight;
       }

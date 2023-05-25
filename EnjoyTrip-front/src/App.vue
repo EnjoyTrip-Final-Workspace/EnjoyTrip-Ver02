@@ -18,6 +18,10 @@ export default {
     TheHeaderNavbar,
     TheFooter,
   },
+  created() {
+    // 페이지 타이틀 설정
+    document.title = 'tastyTrip';
+  }
 };
 </script>
 

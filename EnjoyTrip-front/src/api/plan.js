@@ -7,8 +7,6 @@ function getMyAttractions(userid, success, fail) {
 }
 
 function deleteMyAttraction(userid, content_id, success, fail) {
-    console.log(content_id);
-    console.log(userid);
     api.delete(`/plan/myplan/${userid}/${content_id}`).then(success).catch(fail);
 }
 
