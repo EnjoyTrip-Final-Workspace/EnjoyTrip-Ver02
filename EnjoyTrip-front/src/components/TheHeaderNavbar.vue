@@ -21,8 +21,6 @@
             <router-link :to="{ name: 'main' }" class="m-2 link"> 메인 </router-link>
             <router-link :to="{ name: 'attr' }" class="m-2 link"> 여행지 </router-link>
             <router-link :to="{ name: 'board' }" class="m-2 link"> 게시판 </router-link>
-            <router-link :to="{ name: 'plan' }" class="m-2 link"> 나의여행계획 </router-link>
-            <!-- <router-link :to="{ name: 'todo' }" class="m-2 link"> TodoList </router-link> -->
           </b-nav-item>
         </b-navbar-nav>
 
