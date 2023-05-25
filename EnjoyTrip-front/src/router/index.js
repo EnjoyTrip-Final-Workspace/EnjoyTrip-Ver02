@@ -67,6 +67,12 @@ const routes = [
         component: () => import("@/components/user/UserMyPage"),
       },
       {
+        path: "myplan",
+        name: "myplan",
+        beforeEnter: onlyAuthUser,
+        component: () => import("@/components/user/UserMyPlan"),
+      },
+      {
         path: "modify",
         name: "modify",
         beforeEnter: onlyAuthUser,

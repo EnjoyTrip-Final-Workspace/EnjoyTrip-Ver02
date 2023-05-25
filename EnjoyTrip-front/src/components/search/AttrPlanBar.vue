@@ -54,6 +54,11 @@ export default {
     removeMyAttr(contentId) {
       this.$store.dispatch("planStore/removeSelectedAttraction", contentId);
     },
+
+    /*
+    사용자가 "여행지 저장" 버튼을 클릭하면 호출되는 메서드입니다. 이 메서드는 선택한 여행지 정보를 서버로 전송하여 데이터베이스에 저장합니다.
+    */
+    // 선택한 여행지를 가공하여 저장할 형식으로 변환
     saveMyAttr() {
       if (this.userInfo) {
         // console.log(this.selectedAttractions)
