@@ -6,7 +6,6 @@ import java.util.Map;
 
 import com.ssafy.vue.model.Attraction;
 import com.ssafy.vue.model.Plan;
-import com.ssafy.vue.model.Search;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,28 +30,65 @@ public class PlanController {
         this.planService = planService;
     }
 
+//    @ApiOperation(value = "여행지담기", notes = "선택한 여행지를 담는다.", response = Map.class)
+//    @PostMapping("/myplan")
+//    public ResponseEntity<Map<String, Object>> addplan(
+//            @RequestBody @ApiParam(value = "계획 등록 시 필요한 정보(userid, content_id).", required = true) List<Plan> plan) {
+//        Map<String, Object> resultMap = new HashMap<>();
+//        HttpStatus status = null;
+//        try {
+//            boolean isSuccess = planService.addPlan(plan);
+//            if (isSuccess) {
+//                resultMap.put("message", SUCCESS);
+//                status = HttpStatus.CREATED;
+//            } else {
+//                resultMap.put("message", FAIL);
+//                status = HttpStatus.INTERNAL_SERVER_ERROR;
+//            }
+//        } catch (Exception e) {
+//            logger.error("계획등록 실패 : {}", e);
+//            resultMap.put("message", e.getMessage());
+//            status = HttpStatus.INTERNAL_SERVER_ERROR;
+//        }
+//        return new ResponseEntity<Map<String, Object>>(resultMap, status);
+//    }
     @ApiOperation(value = "여행지담기", notes = "선택한 여행지를 담는다.", response = Map.class)
     @PostMapping("/myplan")
-    public ResponseEntity<Map<String, Object>> addplan(
-            @RequestBody @ApiParam(value = "계획 등록 시 필요한 정보(userid, content_id).", required = true) List<Plan> plan) {
+    public ResponseEntity<Map<String, Object>> addPlan(
+            @RequestBody @ApiParam(value = "계획 등록 시 필요한 정보(userid, content_id).", required = true) List<Plan> plans) {
         Map<String, Object> resultMap = new HashMap<>();
-        HttpStatus status = null;
+        HttpStatus status;
+
         try {
-            boolean isSuccess = planService.addPlan(plan);
+            // 중복 체크를 위해 컨트롤러에서 데이터베이스에 쿼리를 실행하여 결과를 확인
+            for (Plan plan : plans) {
+                boolean isDuplicate = planService.checkDuplicate(plan.getUserid(), plan.getContent_id());
+                if (isDuplicate) {
+                    resultMap.put("message", "중복된 데이터가 있습니다.");
+                    status = HttpStatus.BAD_REQUEST;
+                    return new ResponseEntity<>(resultMap, status);
+                }
+            }
+
+            // 중복 체크를 통과한 경우 등록을 진행
+            boolean isSuccess = planService.addPlan(plans);
             if (isSuccess) {
-                resultMap.put("message", SUCCESS);
+                resultMap.put("message", "계획이 성공적으로 등록되었습니다.");
                 status = HttpStatus.CREATED;
             } else {
-                resultMap.put("message", FAIL);
+                resultMap.put("message", "계획 등록에 실패했습니다.");
                 status = HttpStatus.INTERNAL_SERVER_ERROR;
             }
         } catch (Exception e) {
-            logger.error("계획등록 실패 : {}", e);
-            resultMap.put("message", e.getMessage());
+            logger.error("계획 등록 실패 : {}", e);
+            resultMap.put("message", "계획 등록 중 오류가 발생했습니다.");
             status = HttpStatus.INTERNAL_SERVER_ERROR;
         }
-        return new ResponseEntity<Map<String, Object>>(resultMap, status);
+
+        return new ResponseEntity<>(resultMap, status);
     }
+
+   
 
     @ApiOperation(value = "여행지 조회", notes = "사용자가 선택한 여행지를 보여준다.", response = Map.class)
     // 상세 페이지에서 선택한 contentId로 조회하는 컨트롤러

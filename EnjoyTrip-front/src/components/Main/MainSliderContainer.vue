@@ -8,8 +8,6 @@
       controls
       indicators
       background="#ababab"
-      img-width="1024"
-      img-height="480"
       style="text-shadow: 1px 1px 2px #333"
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"
@@ -18,12 +16,10 @@
       <b-carousel-slide
         caption="First slide"
         text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-        img-src="https://picsum.photos/1024/480/?image=52"
-      ></b-carousel-slide>
-
-      <!-- 두번째 슬라이드 -->
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
-        <h1>Second slide</h1>
+        img-src="1.jpg"
+        ><template #img>
+          <img class="d-block img-fluid w-100" src="1.jpg" alt="First slide" />
+        </template>
       </b-carousel-slide>
 
       <!-- 세번째 슬라이드 -->
@@ -41,8 +37,6 @@
         <template #img>
           <img
             class="d-block img-fluid w-100"
-            width="1024"
-            height="480"
             src="https://picsum.photos/1024/480/?image=55"
             alt="image slot"
           />
@@ -57,8 +51,6 @@
         <template #img>
           <img
             class="d-block img-fluid w-100"
-            width="1024"
-            height="480"
             src="https://picsum.photos/1024/480/?image=54"
             alt="image slot"
           />
@@ -71,6 +63,7 @@
     </p> -->
   </div>
 </template>
+
 <style>
 .slider-container {
   position: relative;
@@ -173,7 +166,6 @@
 .b-carousel-indicators li.active button {
   background-color: #fff;
 }
-
 </style>
 
 <script>
@@ -184,10 +176,10 @@ export default {
         center: true,
         fluidGrow: true,
         blank: true,
-        blankColor: '#bbb',
+        blankColor: "#bbb",
         width: 600,
         height: 400,
-        class: 'my-5',
+        class: "my-5",
       },
       slide: 0,
       sliding: null,
@@ -210,7 +202,7 @@ export default {
 
     // 선택된 옵션 변경 시 textarea 높이 계산
     calculateTextAreaHeight() {
-      const selectedArea = document.querySelector('.select-container');
+      const selectedArea = document.querySelector(".select-container");
       if (selectedArea) {
         this.selectedAreaHeight = selectedArea.offsetHeight;
       }

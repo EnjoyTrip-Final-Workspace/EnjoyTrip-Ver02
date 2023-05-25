@@ -5,7 +5,6 @@ import AppAttractionList from "@/views/AppAttractionList";
 import AppAttractionDetail from "@/views/AppAttractionDetail";
 
 import store from "@/store";
-// import { component } from "vue/types/umd";
 
 Vue.use(VueRouter);
 
@@ -35,11 +34,6 @@ const routes = [
     path: "/",
     name: "main",
     component: AppMain,
-  },
-  {
-    path: "/todo",
-    name: "todo",
-    component: () => import("@/views/AppTodo"),
   },
   {
     path: "/attr",

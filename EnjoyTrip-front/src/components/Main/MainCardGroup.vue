@@ -27,7 +27,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .card-img {
   width: 100%;
   height: auto;

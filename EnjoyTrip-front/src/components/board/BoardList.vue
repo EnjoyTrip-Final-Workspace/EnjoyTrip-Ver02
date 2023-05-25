@@ -12,7 +12,7 @@
     </b-row>
     <b-row>
       <b-col>
-        <b-table striped hover :items="articles" :fields="fields" @row-clicked="viewArticle">
+        <b-table class="dd" striped hover :items="articles" :fields="fields" @row-clicked="viewArticle">
           <template #cell(subject)="data">
             <router-link :to="{ name: 'boardview', params: { articleno: data.item.articleno } }">
               {{ data.item.subject }}
@@ -72,7 +72,7 @@ export default {
 };
 </script>
 
-<style scope>
+<style scoped>
 .tdClass {
   width: 50px;
   text-align: center;
@@ -80,5 +80,13 @@ export default {
 .tdSubject {
   width: 300px;
   text-align: left;
+}
+
+tr {
+  color:black;
+}
+
+a {
+  color: black;
 }
 </style>

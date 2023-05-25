@@ -1,7 +1,7 @@
 <template>
   <b-container class="bv-example-row mt-3 text-center">
     <h3>
-      <b-icon icon="compass-fill" class="icon"></b-icon>
+      <!-- <b-icon icon="compass-fill" class="icon-attr"></b-icon> -->
       여행지 검색
     </h3>
     <b-row>
@@ -36,7 +36,7 @@ export default {
 
 <style scoped>
 
-.icon {
+.icon-attr {
   font-size: 2rem;
   margin-right: 0.5rem;
   color: #007bff;

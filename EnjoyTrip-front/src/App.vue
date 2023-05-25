@@ -8,11 +8,9 @@
   </div>
 </template>
 
-
-
 <script>
 import TheHeaderNavbar from "@/components/TheHeaderNavbar";
-import TheFooter from "@/components/TheHeaderNavbar";
+import TheFooter from "@/components/TheFooter";
 
 export default {
   name: "App",
@@ -30,7 +28,22 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
+  /* 푸터 추가 */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
+
+.content {
+  flex: 1;
+}
+
+.the-footer {
+  margin-top: auto;
+}
+
+/* 여기까지 푸터때메 */
 
 * {
   font-family: font;
