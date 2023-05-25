@@ -1,138 +1,80 @@
 <template>
-    <b-container class="mt-4" v-if="userInfo">
-      <b-row>
-        <b-col></b-col>
-        <b-col cols="8">
-          <b-jumbotron class="bg-white text-primary rounded">
-            <h1 class="display-4">My Page</h1>
-            <hr class="my-4" />
-  
-            <b-container class="mt-4">
-              <b-row>
-                <b-col cols="2" class="text-right">
-                  <span class="text-dark">아이디</span>
-                </b-col>
-                <b-col cols="4">
-                  <span class="text-dark">{{ userInfo.userid }}</span>
-                </b-col>
-              </b-row>
-              <hr>
-              <b-row>
-                <b-col cols="2" class="text-right">
-                  <span class="text-dark">이름</span>
-                </b-col>
-                <b-col cols="4">
-                  <span class="text-dark">{{ userInfo.username }}</span>
-                </b-col>
-              </b-row>
-              <hr>
-              <b-row>
-                <b-col cols="2" class="text-right">
-                  <span class="text-dark">이메일</span>
-                </b-col>
-                <b-col cols="4">
-                  <span class="text-dark">{{ userInfo.email }}</span>
-                </b-col>
-              </b-row>
-              <hr>
-              <b-row>
-                <b-col cols="2" class="text-right">
-                  <span class="text-dark">가입일</span>
-                </b-col>
-                <b-col cols="4">
-                  <span class="text-dark">{{ userInfo.joindate }}</span>
-                </b-col>
-              </b-row>
-            </b-container>
-            <hr class="my-4" />
-            <b-button variant="outline-primary" class="mr-2" @click="goToModify">
-              정보 수정
-            </b-button>
-            <b-button variant="outline-primary" @click="deleteAccount">
-              회원 탈퇴
-            </b-button>
-          </b-jumbotron>
-        </b-col>
-        <b-col></b-col>
-      </b-row>
-    </b-container>
-  </template>
-  
-  <script>
-  import { mapState } from "vuex";
-  
-  const memberStore = "memberStore";
-  
-  export default {
-    name: "UserMyPage",
-    components: {},
-    computed: {
-      ...mapState(memberStore, ["userInfo"]),
+  <div>
+    <div class="col-lg-7 mx-auto">
+      <b-list-group>
+        <b-list-group-item
+          v-for="attraction in attractions"
+          :key="attraction.contentId"
+          href="#"
+          class="d-flex align-items-start"
+          style="height: auto"
+        >
+          <b-img
+            thumbnail
+            :src="attraction.img"
+            alt="Image 1"
+            class="mr-3"
+            style="width: 120px; height: 120px; object-fit: cover"
+            @error="replaceImg"
+          ></b-img>
+          <div class="flex-grow-1">
+            <div class="d-flex justify-content-between mb-3">
+              <h5 class="mb-1">{{ attraction.title }}</h5>
+              {{ attraction.contentId }}
+              <b-icon-x
+                size="2x"
+                @click="deleteListItem(attraction.contentId)"
+              ></b-icon-x>
+            </div>
+            <div class="d-flex justify-content-left">
+              <p class="mb-1">{{ attraction.addr }}</p>
+            </div>
+          </div>
+        </b-list-group-item>
+      </b-list-group>
+    </div>
+  </div>
+</template>
+
+<script>
+import { mapState } from "vuex";
+
+const memberStore = "memberStore";
+const myplanStore = "myplanStore";
+
+export default {
+  data() {
+    return {};
+  },
+  name: "UserMyPlan",
+
+  computed: {
+    ...mapState(memberStore, ["userInfo"]),
+    ...mapState(myplanStore, ["myattractions"]),
+    attractions() {
+      return this.$store.state.myplanStore.myattractions;
     },
-    methods: {
-      deleteAccount() {
-        this.$store.dispatch("memberStore/deleteUser", this.userInfo.userid).then(() => {
-          this.$store.commit("memberStore/SET_USER_INFO", null);
-          sessionStorage.removeItem("access-token");
-          sessionStorage.removeItem("refresh-token");
-          alert("회원 탈퇴되었습니다.");
-          this.$router.push({ name: "login" });
-        });
-      },
-      goToModify() {
-        this.$router.push({ name: "modify" });
-      },
+  },
+  methods: {
+    deleteListItem(contentId) {
+      console.log(contentId)
+      this.$store.dispatch(
+        "myplanStore/deleteMyAttraction",
+        this.userInfo.userid,
+        contentId
+      );
+      // this.$store.dispatch("myplanStore/deleteMyAttraction", {
+      //   userid: this.userInfo.userid,
+      //   content_id: contentId,
+      // });
     },
-  };
-  </script>
-  
-  <style scoped>
-  h1.display-4 {
-    font-size: 2.5rem;
-    font-weight: bold;
-  }
-  
-  .text-right {
-    text-align: right;
-  }
-  
-  .mb-4 {
-    margin-bottom: 1.5rem;
-  }
-  
-  .mt-4 {
-    margin-top: 1.5rem;
-  }
-  
-  .my-4 {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .bg-white {
-    background-color: white;
-  }
-  
-  .text-primary {
-    color: #007bff;
-  }
-  
-  .text-dark {
-    color: black;
-  }
-  
-  .b-button {
-    color: #007bff;
-    border-color: #007bff;
-  }
-  
-  .b-button:hover {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .rounded {
-    border-radius: 10px;
-  }
-  </style>
-  
+    // 비어있는 이미지 처리
+    replaceImg(e) {
+      e.target.src = require(`@/assets/close.png`);
+    },
+  },
+  mounted() {
+    this.$store.dispatch("myplanStore/getMyAttractions", this.userInfo.userid);
+  },
+};
+</script>

@@ -7,6 +7,7 @@ import boardStore from "@/store/modules/boardStore";
 import memberStore from "@/store/modules/memberStore";
 import attrStore from "@/store/modules/attrStore";
 import planStore from "@/store/modules/planStore";
+import myplanStore from "@/store/modules/myplanStore"; // myplanStore 모듈 추가
 
 
 Vue.use(Vuex); // Vue에 Vuex를 사용하도록 설정
@@ -16,7 +17,8 @@ export default new Vuex.Store({
     boardStore,
     memberStore,
     attrStore,
-    planStore
+    planStore,
+    myplanStore
   },
   // 각 모듈은 Vuex 스토어의 상태(state), 게터(getter), 변이(mutation), 액션(action) 등을 정의
   plugins: [

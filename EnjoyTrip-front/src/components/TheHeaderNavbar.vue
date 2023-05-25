@@ -39,7 +39,7 @@
                 </router-link>
               </b-dropdown-item>
               <b-dropdown-item>
-                <router-link :to="{ name: 'mypage' }" class="link align-self-center">
+                <router-link :to="{ name: 'myplan' }" class="link align-self-center">
                   내 여행지
                   <b-badge variant="primary" pill>14</b-badge>
                 </router-link>
