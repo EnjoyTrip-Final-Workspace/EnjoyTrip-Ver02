@@ -12,7 +12,7 @@
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"
     >
-      <!-- 첫번째 슬라이드 -->
+      <!-- 첫번째 슬라이드
       <b-carousel-slide
         caption="First slide"
         text="Nulla vitae elit libero, a pharetra augue mollis interdum."
@@ -20,7 +20,7 @@
         ><template #img>
           <img class="d-block img-fluid w-100" src="1.jpg" alt="First slide" />
         </template>
-      </b-carousel-slide>
+      </b-carousel-slide> -->
 
       <!-- 세번째 슬라이드 -->
       <b-carousel-slide

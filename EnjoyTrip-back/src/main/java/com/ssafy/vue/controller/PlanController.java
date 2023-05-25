@@ -88,8 +88,6 @@ public class PlanController {
         return new ResponseEntity<>(resultMap, status);
     }
 
-   
-
     @ApiOperation(value = "여행지 조회", notes = "사용자가 선택한 여행지를 보여준다.", response = Map.class)
     // 상세 페이지에서 선택한 contentId로 조회하는 컨트롤러
     @GetMapping("/myplan/{userid}")
@@ -102,8 +100,6 @@ public class PlanController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
-
-
 
     @ApiOperation(value = "계획 삭제", notes = "선택한 계획을 삭제합니다.", response = Map.class)
     @DeleteMapping("/myplan/{userid}/{content_id}")
